@@ -1,0 +1,21 @@
+import sympy as sp
+
+core_residue = 305065927
+
+# 1. Check if the residue is prime
+is_prime = sp.isprime(core_residue)
+
+# 2. Get binary representations
+binary_repr = bin(core_residue)
+binary_len = len(binary_repr) - 2 # Strip '0b'
+
+# 3. Calculate 2-adic metrics (consecutive trailing zeros/ones)
+trailing_zeros = len(binary_repr) - len(binary_repr.rstrip('0'))
+trailing_ones = len(binary_repr) - len(binary_repr.rstrip('1'))
+
+print(f"Residue: {core_residue}")
+print(f"Is Prime: {is_prime}")
+print(f"Binary String Length: {binary_len} bits")
+print(f"Binary Representation: {binary_repr}")
+print(f"Trailing 2-adic structural zeros: {trailing_zeros}")
+print(f"Trailing 2-adic structural ones: {trailing_ones}")

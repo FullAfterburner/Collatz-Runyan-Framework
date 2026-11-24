@@ -1,0 +1,106 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ---------------------------------------------------------
+# 1. PARAMETERS & FRAMEWORK CONFIGURATION
+# ---------------------------------------------------------
+STEPS = 114  # Collatz convergence horizon
+THEME_DARK = True
+
+# Simulated resonance parameters for a stationary condition 
+# mapping near the first Riemann zero boundary
+E_target = 14.134725
+phase_shift = -0.1147
+adic_weight = 0.5302
+global_scale = 0.085  # Scaled to fit within the Mandelbrot region
+
+# 2-Adic tree-metric helper to introduce non-Archimedean weighting
+def get_2adic_weight(k):
+    k = int(k)
+    if k == 0:
+        return 1.0
+    # Find the exponent of the highest power of 2 dividing k
+    v2 = (k & -k).bit_length() - 1
+    return 2.0 ** (-v2 * adic_weight)
+
+# ---------------------------------------------------------
+# 2. GENERATE THE 2D COMPLEX PHASE SPIRAL TRAJECTORY Z(K)
+# ---------------------------------------------------------
+K_steps = np.arange(1, STEPS + 1)
+Z_trajectory = np.zeros(STEPS, dtype=complex)
+
+# Center of resonance on the Mandelbrot plane (near the main cardioid/bulb boundary)
+c_center = complex(-0.743643887037158704752191506114774, 0.131825904205311970493132056385139)
+
+current_Z = c_center
+for idx, k in enumerate(K_steps):
+    # Von Mangoldt / harmonic wave proxy component
+    angle = E_target * np.log(k) + phase_shift
+    w_2adic = get_2adic_weight(k)
+    
+    # Cesàro smoothing window envelope
+    cesaro_weight = 1.0 - (k / (STEPS + 1))
+    
+    # Complex phase step transformation
+    delta = global_scale * cesaro_weight * w_2adic * np.exp(1j * angle)
+    current_Z += delta
+    Z_trajectory[idx] = current_Z
+
+# ---------------------------------------------------------
+# 3. GENERATE MANDELBROT COORDINATE PLANE BACKGROUND
+# ---------------------------------------------------------
+# Dynamically scale bounding box around the trajectory
+real_padding = 0.15
+imag_padding = 0.15
+x_min, x_max = Z_trajectory.real.min() - real_padding, Z_trajectory.real.max() + real_padding
+y_min, y_max = Z_trajectory.imag.min() - imag_padding, Z_trajectory.imag.max() + imag_padding
+
+# Build high-density pixel grid
+res_x, res_y = 1000, 1000
+X = np.linspace(x_min, x_max, res_x)
+Y = np.linspace(y_min, y_max, res_y)
+Real, Imag = np.meshgrid(X, Y)
+C = Real + 1j * Imag
+
+# Iterative escape time computation
+Mandelbrot_grid = np.zeros(C.shape)
+Z_mandel = np.zeros(C.shape, dtype=complex)
+max_iter = 80
+
+for i in range(max_iter):
+    mask = np.abs(Z_mandel) <= 2.0
+    Z_mandel[mask] = Z_mandel[mask]**2 + C[mask]
+    Mandelbrot_grid[mask] += 1
+
+# ---------------------------------------------------------
+# 4. PLOT AND RENDERING
+# ---------------------------------------------------------
+plt.style.use('dark_background' if THEME_DARK else 'default')
+fig, ax = plt.subplots(figsize=(12, 10), dpi=100)
+
+# Render Mandelbrot plane background
+cmap = 'twilight_shifted' if THEME_DARK else 'viridis'
+ax.imshow(Mandelbrot_grid, extent=[x_min, x_max, y_min, y_max], 
+          cmap=cmap, origin='lower', alpha=0.85)
+
+# Overlay the 2D Complex Phase Spiral Trajectory
+ax.plot(Z_trajectory.real, Z_trajectory.imag, color='#00FFCC', 
+        linewidth=1.75, linestyle='-', alpha=0.9, label='Phase Spiral Z(K)')
+
+# Visual Anchors for Trajectory Limits
+ax.scatter([c_center.real], [c_center.imag], color='#FF3366', 
+           s=60, zorder=5, label='Resonance Origin ($c_{center}$)')
+ax.scatter([Z_trajectory[-1].real], [Z_trajectory[-1].imag], color='#FFFF33', 
+           s=60, zorder=5, label=f'Horizon Boundary ($K={STEPS}$)')
+
+# Formatting & Subplot Aesthetics
+ax.set_title('Unified Phase Trajectory Embedding on Mandelbrot Plane', fontsize=14, pad=15, weight='bold')
+ax.set_xlabel(r'$\mathrm{Re}[Z]$ (Continuous System Stability Axis)', fontsize=11)
+ax.set_ylabel(r'$\mathrm{Im}[Z]$ (Chaotic Resonance Frequency Axis)', fontsize=11)
+ax.axvline(0, color='white', linestyle=':', alpha=0.3)
+ax.axhline(0, color='white', linestyle=':', alpha=0.3)
+ax.legend(loc='upper right', framealpha=0.2)
+ax.grid(True, color='white', linestyle='--', alpha=0.1)
+
+plt.tight_layout()
+plt.show()

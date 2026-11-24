@@ -1,0 +1,113 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+# ==============================================================================
+# FRAMEWORK CONFIGURATION PARAMETERS
+# ==============================================================================
+RADIUS = 0.0625        # 2-adic topological distance metric
+OMEGA_7 = np.log(7)    # Node 7 clock frequency
+OMEGA_37 = np.log(37)  # Node 37 master clock frequency
+NUM_PARTICLES = 400
+
+# Generate the true deterministic 114 Collatz trajectory steps for 305065927
+def generate_collatz_trajectory(n):
+    path = [n]
+    while n > 1:
+        n = n // 2 if n % 2 == 0 else 3 * n + 1
+        path.append(n)
+    return np.array(path, dtype=float)
+
+raw_path = generate_collatz_trajectory(305065927)
+# Normalize trajectory bounds to match the 2-adic scale without breaking geometry
+normalized_path = RADIUS * (np.log(raw_path) / np.log(raw_path.max()))
+NUM_STEPS = len(normalized_path)
+
+# ==============================================================================
+# RIGID 3D QUATERNION ROTATION ENGINE
+# ==============================================================================
+def get_valid_quaternion_matrix(t):
+    theta = t * OMEGA_7
+    phi = t * OMEGA_37
+    
+    w = np.cos(theta)
+    x = np.sin(theta) * np.cos(phi)
+    y = np.sin(theta) * np.sin(phi)
+    z = np.sin(theta) * np.sin(theta)
+    
+    norm = np.sqrt(w**2 + x**2 + y**2 + z**2)
+    w, x, y, z = w/norm, x/norm, y/norm, z/norm
+    
+    return np.array([
+        [1 - 2*(y**2 + z**2),     2*(x*y - z*w),     2*(x*z + y*w)],
+        [    2*(x*y + z*w), 1 - 2*(x**2 + z**2),     2*(y*z - x*w)],
+        [    2*(x*z - y*w),     2*(y*z + x*w), 1 - 2*(x**2 + y**2)]
+    ])
+
+# Build spatial coordinate geometry
+phi_grid = np.linspace(0, 2 * np.pi, 25)
+theta_grid = np.linspace(0, np.pi, 16)
+X_mesh = RADIUS * np.outer(np.cos(phi_grid), np.sin(theta_grid)).flatten()
+Y_mesh = RADIUS * np.outer(np.sin(phi_grid), np.sin(theta_grid)).flatten()
+Z_mesh = RADIUS * np.outer(np.ones(np.size(phi_grid)), np.cos(theta_grid)).flatten()
+particles = np.vstack((X_mesh, Y_mesh, Z_mesh))
+
+# ==============================================================================
+# ANIMATION RENDERING PIPELINE
+# ==============================================================================
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+fig.patch.set_facecolor('#0a0a0a')
+ax.set_facecolor('#0a0a0a')
+
+bound = RADIUS * 1.5
+ax.set_xlim([-bound, bound])
+ax.set_ylim([-bound, bound])
+ax.set_zlim([-bound, bound])
+ax.axis('off')
+
+# Render scatter components
+mesh_scatter = ax.scatter([], [], [], c=[], cmap='plasma', s=4, alpha=0.4)
+path_scatter = ax.scatter([], [], [], color='#00ffcc', s=25, edgecolors='white', depthshade=False)
+path_line, = ax.plot([], [], [], color='#00ffcc', linestyle=':', linewidth=1.5, alpha=0.8)
+
+def update(frame):
+    t = frame * 0.02
+    rot_mat = get_valid_quaternion_matrix(t)
+    
+    # 1. Transform underlying spacetime fabric mesh
+    trans_mesh = np.dot(rot_mat, particles)
+    mesh_scatter._offsets3d = (trans_mesh[0, :], trans_mesh[1, :], trans_mesh[2, :])
+    mesh_scatter.set_array(trans_mesh[2, :]) # Depth color map
+    
+    # 2. Inject arithmetic pathway steps mapping sequentially over time
+    current_idx = frame % NUM_STEPS
+    step_val = normalized_path[current_idx]
+    
+    # Project path coordinates dynamically into rotating vector channels
+    path_xyz = np.dot(rot_mat, np.array([[0], [0], [step_val]]))
+    
+    # Maintain historic tracking path up to current index
+    history_xyz = []
+    for idx in range(max(0, current_idx - 15), current_idx + 1):
+        pt = np.dot(rot_mat, np.array([[0], [0], [normalized_path[idx]]]))
+        history_xyz.append(pt.flatten())
+    history_xyz = np.array(history_xyz).T
+    
+    path_scatter._offsets3d = (path_xyz[0], path_xyz[1], path_xyz[2])
+    if history_xyz.size > 0:
+        path_line.set_data(history_xyz[0, :], history_xyz[1, :])
+        path_line.set_3d_properties(history_xyz[2, :])
+        
+    ax.view_init(elev=22, azim=frame * 0.6)
+    return mesh_scatter, path_scatter, path_line
+
+ani = animation.FuncAnimation(fig, update, frames=360, interval=25, blit=False)
+
+plt.title(
+    "Runyan Engine: Integrated 114-Step Coordinate Pathway\n"
+    r"$\rho = 0.0625 \quad N_0 = 305,065,927 \rightarrow \text{Node } 7 \text{ Cascade}$",
+    color='#e0e0e0', fontsize=11, fontname='monospace', y=0.94
+)
+
+plt.show()

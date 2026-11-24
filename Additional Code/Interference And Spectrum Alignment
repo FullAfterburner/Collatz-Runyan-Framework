@@ -1,0 +1,15 @@
+import numpy as np
+
+def evaluate_harmonics(t, primes):
+    print(f"Evaluation at t = {t}:")
+    total = 0
+    for p in primes:
+        phase = t * np.log(p)
+        cos_val = np.cos(phase)
+        contrib = -(np.log(p) / (np.sqrt(p) * np.pi)) * cos_val
+        total += contrib
+        print(f"  p = {p:2d} | cos(t ln p) = {cos_val:7.4f} | Contribution = {contrib:7.4f}")
+    print(f"  Total Interference Amplitude f(t) = {total:.4f}\n")
+
+primes = [2, 3, 5, 7, 11, 13, 17]
+evaluate_harmonics(21.022040, primes)

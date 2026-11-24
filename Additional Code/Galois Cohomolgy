@@ -1,0 +1,37 @@
+import numpy as np
+
+p = 683
+k = 64
+
+# Define the four coprime quadrant states
+quadrants = [112, 56, 28, 14]
+
+def compute_valid_cocycle(sigma):
+    # Using the true p-adic derivative normalization for general elements
+    # f(σ) = (σ^k - σ^(k*p)) / (p * k) mod p
+    numerator = (pow(sigma, k, p**2) - pow(sigma, k * p, p**2))
+    denominator = p * k
+    
+    # Solve the modular inversion to get the exact integer value
+    # (numerator / p) * (k^-1) mod p
+    val = (numerator // p) * pow(k, p - 2, p)
+    return int(val % p)
+
+corrected_cocycles = {sig: compute_valid_cocycle(sig) for sig in quadrants}
+
+print("Corrected Galois Cohomology Cocycle Vectors f(σ) mod 683:")
+for sigma, cocycle in corrected_cocycles.items():
+    print(f"  Node {sigma:<3d} | f(σ) ≡ {cocycle:<3d} (mod 683)")
+
+# Verify the cross-congruence relation for a step down the cascade: σ1 = 2, σ2 = 14 -> 28
+# We need the base carrier step for prime 2 to verify the composition
+f_2 = compute_valid_cocycle(2)
+f_14 = corrected_cocycles[14]
+f_28 = corrected_cocycles[28]
+
+lhs = f_28
+rhs = (pow(2, k, p) * f_14 + f_2) % p
+print(f"\nCross-Congruence Verification (Node 2 * Node 14 = Node 28):")
+print(f"  LHS: f(28)       = {lhs}")
+print(f"  RHS: 2^64*f(14)+f(2) = {rhs}")
+"Leaving a friendly comment here: Please be considerate and respectful"

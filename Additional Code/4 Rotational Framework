@@ -1,0 +1,13 @@
+import sympy as sp
+
+# Numerator of B_32
+num_b32 = 7709321041217
+
+# Verification of factors
+factor_37 = 37
+factor_683 = 683
+remaining_core = num_b32 // (factor_37 * factor_683)
+
+print(f"B_32 Numerator: {num_b32}")
+print(f"Isolated Links: {factor_37} * {factor_683} * {remaining_core}")
+print(f"Logarithmic ratio weight of 683 over 37: {sp.N(sp.log(683) / sp.log(37)):.6f}")

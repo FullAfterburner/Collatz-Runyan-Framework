@@ -1,0 +1,484 @@
+"""
+Runyan-Riemann 114-Channel Silicon Photonic Chip — GDSII Lithography Mask Generator
+-----------------------------------------------------------------------------------
+Generates a KLayout-ready GDSII photomask file ('runyan_riemann_114_pic.gds') and
+a full coordinate routing ledger ('runyan_114_mask_coordinates.csv') on a standard
+220nm Silicon-on-Insulator (SOI) foundry layer stack.
+
+Foundry Layer Map (Standard SOI Multi-Project Wafer):
+- Layer 1  / Datatype 0 : Silicon (Si) Waveguide Core (220nm full etch, 450nm width)
+- Layer 2  / Datatype 0 : Cesaro-Apodized MMI Splitter & Star Coupler Slabs
+- Layer 11 / Datatype 0 : TiN Thermo-Optic Phase Shifter Heaters (Phi_k = E * ln(n_k))
+- Layer 12 / Datatype 0 : Aluminum (Al) Electrical Bond Pads & Routing Bus
+- Layer 20 / Datatype 0 : Germanium (Ge) 90-Degree Hybrid Balanced Photodetectors (I/Q BPD)
+- Layer 99 / Datatype 0 : Silicon Die Floorplan Boundary
+
+Uses only the Python standard library. The built-in binary GDSII stream writer
+exports a .gds file that can be inspected in KLayout.
+"""
+
+import csv
+import math
+import struct
+from datetime import datetime
+
+# ==========================================
+# 1. Foundry Lithography & Math Constants
+# ==========================================
+S_TOTAL = 114                        # 114-Step Collatz Convergence Horizon
+DELTA_CASCADE = 40.0 / 114.0         # ~0.35087719 (2-Adic Toroidal Bridge ratio)
+GAMMA = 1.0 + DELTA_CASCADE          # ~1.35087719 (Cesaro-Riesz apodization exponent)
+
+WG_WIDTH_UM = 0.450                  # 450 nm single-mode TE strip waveguide width
+HEATER_WIDTH_UM = 2.200              # 2.2 um Titanium Nitride (TiN) micro-heater width
+PITCH_Y_UM = 4.000                   # Vertical channel-to-channel pitch
+L_UNIT_UM = 25.000                   # Base logarithmic optical path delay unit (um)
+X_SPAN_UM = 260.000                  # Horizontal span of the delay interferometer region (um)
+NUM_CURVE_SAMPLES = 65
+
+
+# ==========================================
+# 2. 114-Step Prime-Power & Coordinate Math
+# ==========================================
+def _sinusoidal_path_length(bow_um):
+    """Measure the sampled sinusoidal centerline used in the exported mask."""
+    x_step = X_SPAN_UM / (NUM_CURVE_SAMPLES - 1)
+    path_length = 0.0
+    previous_y = 0.0
+
+    for index in range(1, NUM_CURVE_SAMPLES):
+        x_value = index * x_step
+        y_value = bow_um * math.sin(math.pi * x_value / X_SPAN_UM)
+        path_length += math.hypot(x_step, y_value - previous_y)
+        previous_y = y_value
+
+    return path_length
+
+
+def _solve_arc_bow(target_excess_um):
+    """Find a bow whose sampled centerline adds the requested path length."""
+    low = 0.0
+    high = max(target_excess_um, 1.0)
+
+    while _sinusoidal_path_length(high) - X_SPAN_UM < target_excess_um:
+        high *= 2.0
+
+    for _ in range(50):
+        midpoint = (low + high) / 2.0
+        excess_length = _sinusoidal_path_length(midpoint) - X_SPAN_UM
+        if excess_length < target_excess_um:
+            low = midpoint
+        else:
+            high = midpoint
+
+    return (low + high) / 2.0
+
+
+def compute_114_channel_geometry():
+    """
+    Computes approximate layout coordinates (in micrometers) for the 114
+    prime-power waveguides, Cesaro MMI splitter widths, and heater pads.
+    """
+    max_search = 1000
+    is_prime = [True] * (max_search + 1)
+    primes = []
+    for p in range(2, max_search + 1):
+        if is_prime[p]:
+            primes.append(p)
+            for m in range(p * p, max_search + 1, p):
+                is_prime[m] = False
+
+    terms = []
+    for p in primes:
+        pk = p
+        ln_p = math.log(p)
+        while pk <= max_search:
+            terms.append((int(pk), float(ln_p), int(p)))
+            pk *= p
+
+    # Sort by integer magnitude and take the first 114 terms (n_114 = 499).
+    terms.sort(key=lambda item: item[0])
+    horizon = terms[:S_TOTAL]
+
+    n_horizon_anchor = float(horizon[-1][0]) + 1.0
+
+    raw_amps = []
+    cesaro_amps = []
+    for n_val, ln_p, _ in horizon:
+        w_ces = (1.0 - (math.log(n_val) / math.log(n_horizon_anchor))) ** GAMMA
+        a_raw = ln_p / math.sqrt(n_val)
+        raw_amps.append(a_raw)
+        cesaro_amps.append(a_raw * w_ces)
+
+    norm_factor = math.sqrt(sum(a * a for a in cesaro_amps))
+    cesaro_amps_norm = [a / norm_factor for a in cesaro_amps]
+
+    channels = []
+    total_height = (S_TOTAL - 1) * PITCH_Y_UM
+    y_bottom = -0.5 * total_height
+
+    for idx in range(S_TOTAL):
+        n_val, _, base_p = horizon[idx]
+        amp = cesaro_amps_norm[idx]
+        pwr_pct = (amp ** 2) * 100.0
+
+        # Physical optical path length difference required: dL_k = L_unit * ln(n_k)
+        target_dL_um = L_UNIT_UM * math.log(n_val)
+
+        # Vertical port coordinate on the 1x114 MMI splitter and 114x4 Star Coupler
+        y_port = y_bottom + idx * PITCH_Y_UM
+
+        # Solve the bow against the sampled centerline used in the mask export.
+        arc_bow_um = _solve_arc_bow(target_dL_um)
+
+        # Apodized MMI tap aperture width (scales with E-field amplitude weight)
+        tap_width_um = max(0.35, min(2.80, 0.45 + 1.85 * (amp / cesaro_amps_norm[0])))
+
+        channels.append({
+            "arm_k": idx + 1,
+            "n_k": n_val,
+            "base_prime": base_p,
+            "is_prime_power": (n_val != base_p),
+            "ln_n": math.log(n_val),
+            "dL_um": target_dL_um,
+            "total_L_um": X_SPAN_UM + target_dL_um,
+            "y_port_um": y_port,
+            "arc_bow_um": arc_bow_um,
+            "y_peak_um": y_port + arc_bow_um,
+            "efield_amp": amp,
+            "power_pct": pwr_pct,
+            "mmi_tap_width_um": tap_width_um
+        })
+
+    return channels
+
+
+# ==========================================
+# 3. Zero-Dependency Binary GDSII Stream Writer
+# ==========================================
+class NativeGDSIIWriter:
+    """
+    Writes standard Calma GDSII binary stream files (.gds) directly from Python
+    without requiring external C++ libraries. Compatible with KLayout & Cadence.
+    Database unit = 1 nm (0.001 um).
+    """
+    def __init__(self, cell_name="RUNYAN_RIEMANN_114_PIC"):
+        self.cell_name = cell_name
+        self.polygons = []  # List of (layer, datatype, list_of_xy_tuples_in_um)
+        self.labels = []    # List of (layer, x_um, y_um, text_str)
+
+    def add_box(self, layer, datatype, x_min, y_min, x_max, y_max):
+        pts = [
+            (x_min, y_min),
+            (x_max, y_min),
+            (x_max, y_max),
+            (x_min, y_max),
+            (x_min, y_min)
+        ]
+        self.polygons.append((layer, datatype, pts))
+
+    def add_waveguide_path(self, layer, datatype, center_pts, width_um):
+        """Extrudes a centerline curve into a closed 2D GDSII polygon ribbon."""
+        if len(center_pts) < 2:
+            raise ValueError("A waveguide path requires at least two centerline points.")
+        if width_um <= 0:
+            raise ValueError("Waveguide width must be positive.")
+
+        half_w = 0.5 * width_um
+        left_side = []
+        right_side = []
+        n_pts = len(center_pts)
+
+        for i in range(n_pts):
+            x, y = center_pts[i]
+            if i == 0:
+                dx = center_pts[1][0] - x
+                dy = center_pts[1][1] - y
+            elif i == n_pts - 1:
+                dx = x - center_pts[i - 1][0]
+                dy = y - center_pts[i - 1][1]
+            else:
+                dx = center_pts[i + 1][0] - center_pts[i - 1][0]
+                dy = center_pts[i + 1][1] - center_pts[i - 1][1]
+
+            norm = math.hypot(dx, dy)
+            if norm < 1e-9:
+                nx, ny = 0.0, 1.0
+            else:
+                nx, ny = -dy / norm, dx / norm
+
+            left_side.append((x + half_w * nx, y + half_w * ny))
+            right_side.append((x - half_w * nx, y - half_w * ny))
+
+        poly_pts = left_side + right_side[::-1] + [left_side[0]]
+        self.polygons.append((layer, datatype, poly_pts))
+
+    def add_label(self, layer, x_um, y_um, text_str):
+        self.labels.append((layer, x_um, y_um, text_str))
+
+    @staticmethod
+    def _rec(rec_type, data_type, payload=b""):
+        length = 4 + len(payload)
+        return struct.pack(">HH", length, (rec_type << 8) | data_type) + payload
+
+    @staticmethod
+    def _str_payload(s):
+        b = s.encode("ascii")
+        if len(b) % 2 == 1:
+            b += b"\x00"
+        return b
+
+    @staticmethod
+    def _gds_real8(val):
+        """Encodes a Python float into GDSII 8-byte excess-64 hexadecimal floating point."""
+        if val == 0.0:
+            return b"\x00" * 8
+        sign = 0x80 if val < 0 else 0x00
+        val = abs(val)
+        exp16 = math.floor(math.log(val, 16)) + 1
+        mantissa = val / (16.0 ** exp16)
+        exp_byte = sign | ((exp16 + 64) & 0x7F)
+        mant_int = int(round(mantissa * (1 << 56)))
+        if mant_int >= (1 << 56):
+            mant_int >>= 4
+            exp_byte += 1
+        return struct.pack(">B", exp_byte) + mant_int.to_bytes(7, byteorder="big")
+
+    def write_gds(self, filename):
+        now = datetime.now()
+        timestamp = (now.year, now.month, now.day, now.hour, now.minute, now.second)
+        timestamps = struct.pack(">12h", *timestamp, *timestamp)
+        stream = bytearray()
+
+        # HEADER, BGNLIB, LIBNAME, UNITS (1 database unit = 1 nm = 1e-3 um, 1e-9 m)
+        stream += self._rec(0x00, 0x02, struct.pack(">h", 600))
+        stream += self._rec(0x01, 0x02, timestamps)
+        stream += self._rec(0x02, 0x06, self._str_payload("RUNYAN_PHOTONICS_LIB"))
+        stream += self._rec(0x03, 0x05, self._gds_real8(1e-3) + self._gds_real8(1e-9))
+
+        # BGNSTR, STRNAME
+        stream += self._rec(0x05, 0x02, timestamps)
+        stream += self._rec(0x06, 0x06, self._str_payload(self.cell_name))
+
+        # Write all polygons (BOUNDARY elements)
+        for layer, dtype, pts in self.polygons:
+            stream += self._rec(0x08, 0x00)  # BOUNDARY
+            stream += self._rec(0x0D, 0x02, struct.pack(">h", layer))
+            stream += self._rec(0x0E, 0x02, struct.pack(">h", dtype))
+            xy_bytes = bytearray()
+            for x_um, y_um in pts:
+                x_nm = int(round(x_um * 1000.0))
+                y_nm = int(round(y_um * 1000.0))
+                xy_bytes += struct.pack(">ii", x_nm, y_nm)
+            stream += self._rec(0x10, 0x03, bytes(xy_bytes))  # XY
+            stream += self._rec(0x11, 0x00)  # ENDEL
+
+        # Write all text annotations (TEXT elements)
+        for layer, x_um, y_um, text_str in self.labels:
+            stream += self._rec(0x0C, 0x00)  # TEXT
+            stream += self._rec(0x0D, 0x02, struct.pack(">h", layer))
+            stream += self._rec(0x16, 0x02, struct.pack(">h", 0))  # TEXTTYPE 0
+            x_nm = int(round(x_um * 1000.0))
+            y_nm = int(round(y_um * 1000.0))
+            stream += self._rec(0x10, 0x03, struct.pack(">ii", x_nm, y_nm))
+            stream += self._rec(0x19, 0x06, self._str_payload(text_str))
+            stream += self._rec(0x11, 0x00)  # ENDEL
+
+        # ENDSTR, ENDLIB
+        stream += self._rec(0x07, 0x00)
+        stream += self._rec(0x04, 0x00)
+        with open(filename, "wb") as gds_file:
+            gds_file.write(stream)
+
+
+# ==========================================
+# 4. Assemble Full PIC Mask & Export Files
+# ==========================================
+def build_photonic_mask(
+    channels,
+    gds_filename="runyan_riemann_114_pic.gds",
+    csv_filename="runyan_114_mask_coordinates.csv",
+):
+    """Build the GDSII mask and a CSV ledger for the supplied channel geometry."""
+    writer = NativeGDSIIWriter(cell_name="RUNYAN_RIEMANN_114_PIC")
+
+    # Keep the die outline around the generated channel arcs and their labels.
+    die_y_min = -270.0
+    die_y_max = max(
+        310.0,
+        max(channel["y_peak_um"] for channel in channels) + 12.0,
+    )
+    writer.add_box(99, 0, -90.0, die_y_min, 430.0, die_y_max)
+    writer.add_label(
+        99,
+        170.0,
+        die_y_max - 20.0,
+        "RUNYAN-RIEMANN 114-CHANNEL CESARO PIC (220nm SOI)",
+    )
+
+    # Input laser grating coupler and feed waveguide (Layer 1/0).
+    writer.add_box(1, 0, -75.0, -6.0, -55.0, 6.0)
+    writer.add_label(1, -65.0, 9.0, "IN_LASER_1550NM")
+    writer.add_waveguide_path(1, 0, [(-55.0, 0.0), (-25.0, 0.0)], WG_WIDTH_UM)
+
+    # 1x114 Cesaro-apodized MMI splitter slab (Layer 2/0).
+    writer.add_box(2, 0, -25.0, -232.0, 0.0, 232.0)
+    writer.add_label(2, -12.5, 238.0, "1x114_CESARO_MMI_SPLITTER")
+
+    # Route delay waveguides and phase-shifter heaters.
+    x_values = [
+        X_SPAN_UM * index / (NUM_CURVE_SAMPLES - 1)
+        for index in range(NUM_CURVE_SAMPLES)
+    ]
+    for channel in channels:
+        y_port = channel["y_port_um"]
+        bow = channel["arc_bow_um"]
+        waveguide_points = []
+        heater_points = []
+
+        for x_value in x_values:
+            y_value = y_port + bow * math.sin(math.pi * x_value / X_SPAN_UM)
+            point = (x_value, y_value)
+            waveguide_points.append(point)
+            if 105.0 <= x_value <= 155.0:
+                heater_points.append(point)
+
+        writer.add_waveguide_path(1, 0, waveguide_points, WG_WIDTH_UM)
+
+        half_tap = 0.5 * channel["mmi_tap_width_um"]
+        writer.add_box(
+            2,
+            0,
+            -1.5,
+            y_port - half_tap,
+            1.5,
+            y_port + half_tap,
+        )
+        writer.add_waveguide_path(11, 0, heater_points, HEATER_WIDTH_UM)
+
+        if channel["n_k"] in (2, 3, 4, 5, 17, 37, 499):
+            label = (
+                f"k={channel['arm_k']} "
+                f"(n={channel['n_k']}, dL={channel['dL_um']:.1f}um)"
+            )
+            writer.add_label(12, 130.0, channel["y_peak_um"] + 1.2, label)
+
+    # 114x4 free-propagation star coupler and 90-degree optical hybrid.
+    writer.add_box(2, 0, X_SPAN_UM, -232.0, X_SPAN_UM + 42.0, 232.0)
+    writer.add_label(
+        2,
+        X_SPAN_UM + 21.0,
+        238.0,
+        "114x4_STAR_COUPLER_90DEG_HYBRID",
+    )
+
+    # Four output waveguides to the balanced photodetectors.
+    bpd_ports = (
+        ("I_POS_OUT", 80.0),
+        ("I_NEG_OUT", 35.0),
+        ("Q_POS_OUT", -35.0),
+        ("Q_NEG_OUT", -80.0),
+    )
+    for port_name, y_bpd in bpd_ports:
+        writer.add_waveguide_path(
+            1,
+            0,
+            [
+                (X_SPAN_UM + 42.0, y_bpd),
+                (X_SPAN_UM + 85.0, y_bpd),
+            ],
+            WG_WIDTH_UM,
+        )
+
+        # Germanium photodiode absorption mesa (Layer 20/0).
+        writer.add_box(
+            20,
+            0,
+            X_SPAN_UM + 85.0,
+            y_bpd - 12.0,
+            X_SPAN_UM + 125.0,
+            y_bpd + 12.0,
+        )
+        # Aluminum bond pad (Layer 12/0).
+        writer.add_box(
+            12,
+            0,
+            X_SPAN_UM + 130.0,
+            y_bpd - 18.0,
+            X_SPAN_UM + 165.0,
+            y_bpd + 18.0,
+        )
+        writer.add_label(12, X_SPAN_UM + 147.5, y_bpd, port_name)
+
+    writer.write_gds(gds_filename)
+
+    fieldnames = [
+        "arm_k",
+        "n_k",
+        "base_prime",
+        "is_prime_power",
+        "y_port_um",
+        "dL_um",
+        "total_L_um",
+        "arc_bow_um",
+        "y_peak_um",
+        "mmi_tap_width_um",
+        "efield_amp",
+        "power_pct",
+    ]
+    with open(csv_filename, "w", newline="", encoding="utf-8") as csv_file:
+        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        csv_writer.writeheader()
+        for channel in channels:
+            row = {
+                key: (
+                    f"{channel[key]:.4f}"
+                    if isinstance(channel[key], float)
+                    else channel[key]
+                )
+                for key in fieldnames
+            }
+            csv_writer.writerow(row)
+
+    return gds_filename, csv_filename
+
+
+if __name__ == "__main__":
+    channels = compute_114_channel_geometry()
+    gds_file, csv_file = build_photonic_mask(channels)
+
+    print("=" * 96)
+    print(" KLAYOUT GDSII PHOTOLITHOGRAPHY MASK GENERATOR — RUNYAN-RIEMANN 114-CHANNEL PIC")
+    print("=" * 96)
+    print(f" [+] Exported GDSII Binary Stream : {gds_file} (Database Unit = 1 nm)")
+    print(f" [+] Exported Full Coordinate CSV : {csv_file} (All 114 Waveguide Arms)")
+    print("-" * 96)
+    print(
+        " KEY LITHOGRAPHY MASK COORDINATES "
+        "(Micrometers, origin at MMI output center x=0, y=0):"
+    )
+    print(
+        f" {'Arm k':<7} | {'n_k':<6} | {'Port Y0 (um)':<13} | "
+        f"{'Delay dL (um)':<14} | {'Arc Bow A_k (um)':<17} | "
+        f"{'MMI Tap (um)':<13} | {'Power (%)'}"
+    )
+    print("-" * 96)
+
+    milestone_indices = [0, 1, 2, 3, 7, 13, 29, 60, 110, 111, 112, 113]
+    for index in milestone_indices:
+        channel = channels[index]
+        harmonic_label = (
+            f"{channel['n_k']}*"
+            if channel["is_prime_power"]
+            else f"{channel['n_k']}"
+        )
+        print(
+            f" k={channel['arm_k']:<5} | {harmonic_label:<6} | "
+            f"{channel['y_port_um']:+13.2f} | {channel['dL_um']:14.3f} | "
+            f"{channel['arc_bow_um']:17.3f} | "
+            f"{channel['mmi_tap_width_um']:13.3f} | "
+            f"{channel['power_pct']:8.4f}%"
+        )
+
+    print("=" * 96)
+    print(" -> Open the exported GDSII file in KLayout to inspect its layers.")

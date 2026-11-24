@@ -1,0 +1,98 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+# ==============================================================================
+# FRAMEWORK CONFIGURATION PARAMETERS
+# ==============================================================================
+RADIUS = 0.0625        # 2-adic topological radius baseline
+OMEGA_7 = np.log(7)    # Node 7 clock frequency
+OMEGA_37 = np.log(37)  # Node 37 master clock frequency
+NUM_PARTICLES = 600    # Higher density for clearer spatial structure
+NUM_FRAMES = 360
+
+# ==============================================================================
+# TRUE RIGID QUATERNION ROTATION ENGINE
+# ==============================================================================
+def get_valid_quaternion_rotation(t):
+    """
+    Generates a mathematically rigorous 3D rigid rotation matrix from a 
+    normalized unit quaternion derived from your phase frequencies.
+    """
+    theta = t * OMEGA_7
+    phi = t * OMEGA_37
+    
+    # Generate unit quaternion components (w, x, y, z) on a hypersphere
+    w = np.cos(theta)
+    x = np.sin(theta) * np.cos(phi)
+    y = np.sin(theta) * np.sin(phi)
+    z = np.sin(theta) * np.sin(theta) # Balanced orthogonal component
+    
+    # Normalize to ensure rigid rotation without dimensional scaling collapse
+    norm = np.sqrt(w**2 + x**2 + y**2 + z**2)
+    w, x, y, z = w/norm, x/norm, y/norm, z/norm
+    
+    # Standard Euler-Rodrigues formula for clean 3D quaternion rotation
+    rot_matrix = np.array([
+        [1 - 2*(y**2 + z**2),     2*(x*y - z*w),     2*(x*z + y*w)],
+        [    2*(x*y + z*w), 1 - 2*(x**2 + z**2),     2*(y*z - x*w)],
+        [    2*(x*z - y*w),     2*(y*z + x*w), 1 - 2*(x**2 + y**2)]
+    ])
+    return rot_matrix
+
+# Initialize a highly defined 3D coordinate shell
+phi_grid = np.linspace(0, 2 * np.pi, 30)
+theta_grid = np.linspace(0, np.pi, 20)
+X_base = RADIUS * np.outer(np.cos(phi_grid), np.sin(theta_grid))
+Y_base = RADIUS * np.outer(np.sin(phi_grid), np.sin(theta_grid))
+Z_base = RADIUS * np.outer(np.ones(np.size(phi_grid)), np.cos(theta_grid))
+
+# Flatten coordinates into a reliable 3D matrix block
+particles = np.vstack((X_base.flatten(), Y_base.flatten(), Z_base.flatten()))
+
+# ==============================================================================
+# VISUALIZATION PIPELINE SETUP
+# ==============================================================================
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+fig.patch.set_facecolor('#0d0d0d')
+ax.set_facecolor('#0d0d0d')
+
+# Set rigid bounds proportional to your 2-adic scale
+bound = RADIUS * 1.5
+ax.set_xlim([-bound, bound])
+ax.set_ylim([-bound, bound])
+ax.set_zlim([-bound, bound])
+ax.axis('off')
+
+# Initialize scatter rendering with specific color mappings
+scatter = ax.scatter([], [], [], c=[], cmap='magma', s=6, edgecolors='black', linewidths=0.2)
+
+def update(frame):
+    t = frame * 0.02
+    rot_mat = get_valid_quaternion_rotation(t)
+    
+    # Apply clean matrix dot-product rotation to your particle cloud
+    transformed = np.dot(rot_mat, particles)
+    
+    x, y, z = transformed[0, :], transformed[1, :], transformed[2, :]
+    
+    # Color based on depth positioning to enhance true 3D spatial perception
+    color_metric = z 
+    
+    scatter._offsets3d = (x, y, z)
+    scatter.set_array(color_metric)
+    
+    # Stabilize camera sweep around the rotation cell
+    ax.view_init(elev=25, azim=frame * 0.7)
+    return scatter,
+
+ani = animation.FuncAnimation(fig, update, frames=NUM_FRAMES, interval=25, blit=False)
+
+plt.title(
+    "Runyan Quaternion Engine: Rigid 3D Phase-Lock Projection\n"
+    r"$\rho = 0.0625 \quad \omega_7 = \ln(7) \quad \omega_{37} = \ln(37)$",
+    color='#e0e0e0', fontsize=11, fontname='monospace', y=0.94
+)
+
+plt.show()
