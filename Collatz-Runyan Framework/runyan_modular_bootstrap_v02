@@ -1,0 +1,57 @@
+"""Doubled Pell-lattice spectral test. Python 3 + NumPy.
+No target constants used in spectrum generation. Run beside v0.1 or standalone.
+"""
+import numpy as np
+from collections import Counter
+from fractions import Fraction
+from math import isqrt
+
+def theta(D,z,N=24):
+    k=np.arange(-N,N+1)
+    l=np.exp(2j*np.pi*z*(k+np.arange(2)[:,None]/2)**2).sum(1)
+    r=np.exp(-2j*np.pi*z.conjugate()*D*(k+np.arange(2*D)[:,None]/(2*D))**2).sum(1)
+    return np.outer(l,r).ravel()
+
+def Z(D,z):
+    q=np.exp(2j*np.pi*z)
+    eta=abs(np.exp(2j*np.pi*z/24)*np.prod(1-q**np.arange(1,201)))
+    return np.sum(abs(theta(D,z))**2)/eta**4
+
+def spectrum(D,cutoff=2):
+    # Doubled lattice: h=(x+a/2)^2+D*(y'+b/(2D))^2,
+    # hbar=(x'+a/2)^2+D*(y+b/(2D))^2.
+    # Energies stored in integer units 1/(4D).
+    L=4*D*cutoff
+    p=[1]+[0]*cutoff
+    for k in range(1,cutoff+1):
+        for _ in range(4): # four oscillator towers, two each chirality
+            for j in range(k,cutoff+1): p[j]+=p[j-k]
+    counts=Counter()
+    for a in range(2):
+        for b in range(2*D):
+            c=Counter(D*u*u+v*v for u in range(-isqrt(L//D),isqrt(L//D)+1) if u%2==a for v in range(-isqrt(L),isqrt(L)+1) if v%(2*D)==b and D*u*u+v*v<=L)
+            for i,ni in c.items():
+                for j,nj in c.items():
+                    for k,nk in enumerate(p):
+                        e=i+j+4*D*k
+                        if e<=L: counts[e]+=ni*nj*nk
+    return counts
+
+def run():
+    print('Pell identities:',73**2-37*12**2,6083073**2-137*519712**2)
+    print('Pell matrix 137 upper right:',137*519712)
+    for D in (3,37,137):
+        a,b=np.indices((2,2*D)).reshape(2,-1)
+        S=np.exp(-2j*np.pi*(np.outer(a,a)/2-np.outer(b,b)/(2*D)))/np.sqrt(4*D)
+        t=np.exp(2j*np.pi*(a*a/4-b*b/(4*D)))
+        ST=S*t; C=np.eye(4*D)[((-a)%2)*2*D+(-b)%(2*D)]
+        err=lambda x: np.max(abs(x))
+        print('\nD',D,'sectors',4*D,'group errors',err(S@S-C),err(ST@ST@ST-C),err(S@S.conj().T-np.eye(4*D)))
+        pts=[.23+1.17j,.1+.9j,-.41+.73j,.49+1.8j,1.2+.6j]
+        print('max relative Z errors S,T',max(abs(Z(D,-1/z)/Z(D,z)-1) for z in pts),max(abs(Z(D,z+1)/Z(D,z)-1) for z in pts))
+        print('max theta S,T errors',max(err(theta(D,-1/z)-abs(z)*S@theta(D,z)) for z in pts),max(err(theta(D,z+1)-t*theta(D,z)) for z in pts))
+        c=spectrum(D); print('first levels',[(str(Fraction(e,4*D)),c[e]) for e in sorted(c)[:8]])
+        print('vacuum',c[0],'states through Delta=2',sum(c.values()),'uniform sector weight',Fraction(1,4*D))
+        # Comparison only, after spectrum generation.
+        print('target 185/234 possible as rank fraction?',(Fraction(185,234)*4*D).denominator==1,'114 sectors?',4*D==114)
+if __name__=='__main__': run()
