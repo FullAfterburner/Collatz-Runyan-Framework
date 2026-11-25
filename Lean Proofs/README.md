@@ -1,6 +1,6 @@
-# Collatz–Runyan Lean Proofs — initial v2.2 formalization
+# Collatz–Runyan Lean Proofs — v2.2 formalization
 
-**Build status at publication: uncompiled draft.** Lean was unavailable in the authoring environment. Do not describe this project as machine-verified until the pinned toolchain completes a successful build. This is a partial formalization of the mathematical core, not a formal proof of the entire framework.
+**Build status: successful author-run local compilation, documented in the [kernel build log](kernel_verification.txt).** The [axiom audit](axiom_verification.txt) lists only `propext`, `Classical.choice` and `Quot.sound` for seven selected statements, with no `sorryAx` dependencies. This is a partial formalization of the mathematical core, not a formal proof of the entire framework. No independent fresh build is claimed by this documentation update.
 
 Source manuscript: [Theorems, Supporting Lemmas and Complete Proofs (v2.1L)](../Proofs/Collatz_Runyan_Theorems_Lemmas_Proofs_v21L.pdf).
 
@@ -27,7 +27,7 @@ lake exe cache get
 lake build
 ```
 
-The Lean and Mathlib versions are pinned to v4.19.0. The first build downloads dependencies. Commit the generated lake-manifest.json after confirming the dependency resolution. Open the folder in VS Code with the Lean 4 extension for interactive proof checking.
+The Lean and Mathlib versions are pinned to v4.19.0. The first build downloads dependencies. The repository includes the generated dependency manifest; preserve it for reproducibility. Open the folder in VS Code with the Lean 4 extension for interactive proof checking.
 
 Check that the build exits successfully; inspect all diagnostics. To examine theorem dependencies in a Lean file, use for example:
 
@@ -37,11 +37,13 @@ import CollatzRunyan
 #print axioms CollatzRunyan.affine_commutator
 ```
 
-No unfinished proof placeholders or user-declared axioms are included in the initial source. This is not a guarantee that the source compiles, nor a claim that standard Mathlib foundations use no axioms. Any build errors should be corrected before labeling the statements machine-checked.
+The archived compilation and the seven-statement audit are separate checks. Reproduce the audit with `lake env lean Verification.lean`. The audit is not a substitute for kernel type-checking and does not imply that standard Mathlib foundations use no axioms.
+
+Evidence: [verification source](Verification.lean), [kernel log](kernel_verification.txt), [build log](build_verification.txt), [axiom log](axiom_verification.txt), [dependency manifest](lake-manifest.json).
 
 ## Verification roadmap
 
-1. Compile and review every initial theorem.
+1. Reproduce the recorded build independently and audit any remaining declarations.
 2. Formalize parity cylinders and branch isometries.
 3. Formalize the exact cycle period and metric limit.
 4. Formalize Fourier oscillator sums and the renormalized limit.
