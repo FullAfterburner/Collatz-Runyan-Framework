@@ -1,124 +1,453 @@
-# The Collatz–Runyan Framework
+# The Collatz–Runyan Arithmetic Framework
 
-### Arithmetic Geometry, Modular Quantum Matter, and Induced Gravity
+## Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics
 
-**Author:** Jake Thomas Runyan · Independent research programme  
-**Edition:** Master Research Monograph, expanded edition — November 24, 2026  
-**Status:** Exploratory research draft; not independently peer-reviewed.
+**Author:** Jake Thomas Runyan  
+**Research Edition:** v2.1L — Theorems, Supporting Lemmas and Complete Proofs  
+**Updated:** November 25, 2026  
+**Status:** Independent mathematical and theoretical physics research programme.
 
-## Overview
+## Abstract
 
-The Collatz–Runyan Framework investigates possible connections between discrete arithmetic, 2-adic dynamics, Pell equations, modular geometry, quantum matter and gravitation. Its long-term objective is to explore whether a common microscopic arithmetic quantum model can reproduce general relativity and consistent quantum matter in a controlled continuum limit.
+The Collatz–Runyan Arithmetic Framework is an interdisciplinary research programme investigating mathematical relationships between discrete arithmetic, number theory, noncommutative geometry, quantum mechanics, particle physics, special and general relativity, quantum gravity, supergravity and string theory.
 
-The repository accompanies the 51-page Master Research Monograph and includes mathematical derivations, Python verification engines, archived numerical experiments, editable LaTeX source and an interactive 22-environment visualization suite. It documents negative results and limitations alongside successful mathematical benchmarks.
+The framework explores whether fundamental geometric structures and physical laws can emerge from underlying arithmetic dynamics rather than being introduced as independent assumptions.
 
-**This is a research programme, not an established unified physical theory.** It does not claim a proof of the Collatz conjecture or the Riemann hypothesis, a derivation of the Standard Model, or a prediction of the observed Newton constant or cosmological constant.
+Beginning with the Collatz transformation, Bernoulli numbers, 2-adic and 3-adic arithmetic, Pell equations and Diophantine relationships, the research develops arithmetic spectral operators, modular geometries, quantum matter models, relativistic symmetries and candidate continuum limits.
 
-## Start here
+The repository contains mathematical manuscripts, formal theorems, supporting lemmas, analytical proofs, symbolic derivations, Python verification engines, computational experiments, numerical results, technical cross-audits and interactive three-dimensional visualizations.
 
-- [Master Research Paper (PDF)](Collatz_Runyan_Master_Paper.pdf) — consolidated research, derivations, references and claim ledger.
-- [Interactive 3D Visualization Suite v2.0](visualization/Collatz_Runyan_3D_Visualization_Suite_v2.html) — download the HTML and open it locally in a modern browser.
-- [Master audit results](manuscript/master_audit_results.txt) — numerical recomputations and mass-splitting tests.
-- [Previous monograph](historical/Collatz_Runyan_Research_Monograph.pdf) — historical research record.
+The research emphasizes reproducibility, mathematical consistency, transparent assumptions, independent verification and the documentation of negative results.
 
-## Research areas
+## 1. Fundamental Research Objectives
 
-| Area | Topics |
-| --- | --- |
-| Discrete arithmetic | Bernoulli numbers, Collatz trajectories, 2-adic valuations, Pell and Diophantine equations |
-| Spectral geometry | Weighted-unitary dynamics, arithmetic mass operators, toroidal geometry |
-| Modular quantum matter | Weil representations, Narain conformal field theories, modular bootstrap, A₄ flavor symmetry, complex multiplication |
-| Particle physics | Neutrino and charged-lepton tests, modular Yukawa textures, topological chirality |
-| Gravity and cosmology | Pell–Lorentz transformations, flux compactification, common effective actions, vacuum energy and induced gravity |
-| Microscopic spacetime | Regge calculus, refinement criticality, causal triangulations, scalar determinant backreaction and continuum-limit tests |
+The central objective of the Collatz–Runyan Framework is to investigate whether a common arithmetic foundation can provide a mathematically consistent microscopic description of spacetime, matter and gravitational interactions.
 
-## Selected mathematical and computational results
+The research programme addresses:
 
-### Arithmetic and spectral foundations
+- The Collatz conjecture and deterministic arithmetic descent.
+- 2-adic and 3-adic dynamical systems.
+- Bernoulli numbers, the Basel problem and Riemann zeta functions.
+- Pell equations and arithmetic Lorentz transformations.
+- Noncommutative operator algebras.
+- Emergent spacetime dimensionality and causal geometry.
+- Special and general relativity.
+- Quantum field theory and gravitational scattering amplitudes.
+- Higgs dynamics and spontaneous symmetry breaking.
+- The cosmological constant problem and quantum vacuum energy.
+- Supersymmetry, gravitinos and modular supergravity.
+- Kaluza–Klein compactification and Epstein spectral functions.
+- Arithmetic string dynamics and D-brane operator algebras.
+- Mathematical obstructions to realistic chiral particle spectra.
+- The possibility of a controlled arithmetic quantum theory of gravity.
 
-The corrected standard Collatz trajectory of `305065927` takes **243 transitions** to reach 1. The earlier value of 114 is retained as an unresolved historical parameter, not a verified stopping time.
+## 2. Arithmetic and Number-Theoretic Foundations
 
-A symmetrized arithmetic matrix is
+The framework begins with the Collatz transformation
 
 $$
-A=\begin{pmatrix}3&\sqrt{185}\\ \sqrt{185}&17\end{pmatrix},\qquad
+T(n)=
+\begin{cases}
+n/2,&n\equiv0\pmod2,\\
+3n+1,&n\equiv1\pmod2.
+\end{cases}
+$$
+
+The research investigates parity histories, inverse arithmetic branches, stopping times, residue classes, p-adic valuations and exact Diophantine descent certificates.
+
+The original arithmetic investigation also incorporates the Bernoulli number
+
+$$
+B_{32}=-\frac{7709321041217}{510},
+$$
+
+whose numerator possesses the exact prime factorization
+
+$$
+7709321041217=37\cdot683\cdot305065927.
+$$
+
+These arithmetic relationships motivate subsequent spectral and geometric constructions.
+
+The corrected Collatz trajectory of the Bernoulli-derived integer 305065927 reaches 1 after 243 standard transitions, comprising 83 odd operations and 160 even operations.
+
+The framework does not currently claim a proof of the Collatz conjecture.
+
+## 3. The Runyan Arithmetic Spectral Operator
+
+A central mathematical construction is the symmetric arithmetic operator
+
+$$
+A=
+\begin{pmatrix}
+3&\sqrt{185}\\
+\sqrt{185}&17
+\end{pmatrix}.
+$$
+
+Its exact eigenvalues are
+
+$$
 \lambda_\pm=10\pm\sqrt{234}.
 $$
 
-It gives the exact two-state transition amplitude-squared coefficient $185/234$. Interpreting the absolute eigenvalues as masses requires an additional physical hypothesis and an overall scale $M$:
+Under an additional physical mass interpretation, the corresponding positive mass scales are
 
 $$
-m_\pm=M(\sqrt{234}\pm10).
+m_\pm=M(\sqrt{234}\pm10),
 $$
 
-The corresponding mass invariants are $m_-m_+=134M^2$ and $m_-^2+m_+^2=668M^2$. These identities do not identify the modes with observed particles.
+where $M$ is a model-dependent reference scale.
 
-### Selective quantum vacuum cancellation
-
-For four real scalar degrees of freedom and one Dirac fermion with equal masses in each arithmetic sector, the free-field heat-kernel coefficients obey
+The spectrum generates the exact invariants
 
 $$
-a_0=0,\qquad a_1=(1-4\xi)R,
+m_-m_+=134M^2,
 $$
 
-where $\xi$ is the scalar curvature coupling. At conformal coupling, $\xi=1/6$, the leading volume coefficient cancels while a nonzero Einstein–Hilbert contribution survives. The induced gravitational coupling remains dependent on the regulator, scale and assumed absence of a bare curvature term.
-
-An alternative exact pairing of Kähler–Dirac and even-form determinants produces the topology-dependent weight
-
 $$
-W_{\mathrm{CR}}=[134(Ma)^2]^{-\chi},
+m_-^2+m_+^2=668M^2.
 $$
 
-where $a$ is the lattice spacing and $\chi$ is the Euler characteristic. At fixed topology this weight cannot select local geometry. The expanded paper also derives a two-mass moment-rigidity result and quantifies regulated vacuum sensitivity to mass splitting.
+These relationships provide a common spectral foundation for investigations involving quantum matter, gravitational effective actions, particle mass hierarchies, spectral determinants and vacuum-energy contributions.
 
-### Quantum geometry and continuum tests
+Their identification with observed elementary particles remains an open physical question.
 
-The ordered refinement-history ensemble satisfies $F(z)=1+zF(z)^5$, with exact critical activity $z_c=256/3125$. Despite the divergence of its mean volume, the sampled geometries exhibit branched-polymer-like scaling: effective Hausdorff dimension approximately 2.11 and spectral dimension approximately 1.35. They do not reproduce macroscopic four-dimensional spacetime.
+## 4. Collatz Dynamics and Diophantine Descent
 
-On prescribed smooth four-dimensional backgrounds, Regge curvature and scalar kinetic-energy benchmarks exhibit approximately second-order convergence. Flat-lattice overlap fermion experiments also reproduce the expected Abelian topological index. These are necessary consistency tests, not evidence that dynamical Einstein gravity or the chiral Standard Model has emerged.
+The framework develops exact arithmetic descent certificates through finite parity histories.
 
-## Scientific status
+For a shortcut Collatz trajectory of length $k$, containing $m$ odd operations, the iterated transformation can be expressed as
 
-| Result | Evidence / limitation |
-| --- | --- |
-| Corrected arithmetic and two-state spectrum | Exact within stated definitions |
-| Modular representations and CFT constructions | Mathematical benchmarks using established methods |
-| Arithmetic flux stabilization | Conditional local model; global consistency unresolved |
-| Modular particle-mass predictions | Several minimal models fail experimental tests |
-| Free-field vacuum cancellation and induced curvature | Conditional analytic results and numerical benchmarks |
-| Refinement criticality | Exact for the restricted ordered-history ensemble |
-| Dynamically emergent four-dimensional spacetime | Not obtained in tested ensembles |
-| Absolute Newton constant and positive physical cosmological constant | Not derived |
-| Interacting chiral Standard Model and UV-complete quantum gravity | Open research objectives |
+$$
+T^k(n)=\frac{3^mn+c}{2^k}.
+$$
 
-## Interactive visualization laboratory
+Strict descent occurs precisely when
 
-![Causal geometry preview](manuscript/runyan_v2_causal_preview.png)
+$$
+(2^k-3^m)n>c.
+$$
 
-The [3D Visualization Suite](visualization/Collatz_Runyan_3D_Visualization_Suite_v2.html) contains 22 environments spanning arithmetic and modular geometry, particle-physics tests, criticality, matter–geometry crossover, causal triangulations and induced gravity. The self-contained HTML is designed to run offline; WebGL-compatible browsers enable interactive 3D views, and static fallbacks are provided.
+Research includes residue-class certificate enumeration, exceptional parity histories, combined 2-adic and 3-adic constraints, weighted arithmetic transfer operators and candidate Lyapunov functionals.
 
-## Research roadmap
+Computational investigations extend coefficient-contraction survival calculations through 500 shortcut iterations.
 
-- [x] Consolidate and correct the arithmetic and spectral foundations.
-- [x] Develop modular quantum-matter and effective gravity benchmarks.
-- [x] Test refinement criticality, matter backreaction and free-field cancellation.
-- [ ] Implement physical spinorial matter on fluctuating causal triangulations.
-- [ ] Establish a nonperturbative critical regime with extended four-dimensional scaling.
-- [ ] Demonstrate a controlled continuum limit, unitarity and Einstein gravitational dynamics.
-- [ ] Derive an anomaly-consistent interacting particle spectrum and regulator-independent physical predictions.
+The research also identifies fundamental limitations of fixed-resolution modular corrections and randomized contraction arguments. Statistical convergence does not constitute a universal proof.
 
-## Citation
+## 5. Noncommutative Arithmetic Geometry
 
-If you use this work, please cite the master monograph and the relevant computational experiment.
+Representing the two inverse Collatz branches as Hilbert-space isometries produces operators satisfying the Cuntz relations.
 
-> Runyan, Jake Thomas (2026). *The Collatz–Runyan Framework: Arithmetic Geometry, Modular Quantum Matter, and Induced Gravity*. Master Research Monograph, expanded edition, November 24, 2026. Research draft.
+At arithmetic history depth $k$, the associated matrix-unit algebra satisfies
 
-For archival citation, use the version-specific DOI from the corresponding Zenodo record once available. The DOI for this expanded edition has not been specified here.
+$$
+\mathcal A_k\cong M_{2^k}(\mathbb C).
+$$
 
-## Feedback, provenance and licensing
+At the elementary branch level,
 
-Mathematical corrections, independent reproductions, constructive criticism and comparisons with established literature are welcome. Please distinguish analytical proofs, numerical benchmarks, modeling assumptions and open conjectures when reporting results.
+$$
+\mathcal A_1\cong M_2(\mathbb C).
+$$
 
-The master edition includes AI-assisted technical synthesis and computational auditing; proposed constructions require author review and independent scientific scrutiny. References to established mathematical and physical methods are provided in the monograph.
+Its Hermitian component possesses four independent real coordinates and the exact determinant
 
-No repository license is specified by this README. Consult the repository's `LICENSE` file if one is provided; otherwise obtain the author's permission for reuse beyond applicable legal rights.
+$$
+\det X=t^2-x^2-y^2-z^2.
+$$
+
+This establishes a Lorentzian quadratic space within the arithmetic operator representation.
+
+The construction also admits canonical phase symmetries and unitary branch-mixing transformations, providing a mathematical setting for investigating candidate gauge structures.
+
+These are algebraic symmetries rather than established physical gauge interactions.
+
+## 6. Arithmetic Reconstruction of Special and General Relativity
+
+The framework investigates a conditional reconstruction of Einstein's theories through arithmetic branch algebras, Pell equations, spinorial transformations and local differential geometry.
+
+The Pell equation
+
+$$
+u^2-Dv^2=1
+$$
+
+generates exact Lorentz transformations.
+
+Multiplicatively independent Pell units generate dense sets of rapidities, allowing continuous Lorentz symmetry to be recovered under specified spatial-frame assumptions.
+
+The research reconstructs standard special-relativistic relationships, including time dilation, length contraction and the relativistic energy–momentum equation
+
+$$
+E^2=p^2c^2+m^2c^4.
+$$
+
+Local spin frames, curvature, tetrads and quantum-induced gravitational terms provide a conditional route to the Einstein field equations:
+
+$$
+G_{\mu\nu}+\Lambda g_{\mu\nu}
+=\frac{8\pi G}{c^4}T_{\mu\nu}.
+$$
+
+Symbolic and numerical investigations reproduce Schwarzschild–de Sitter geometry, Friedmann cosmological equations, gravitational time dilation, solar light deflection and Mercury's anomalous perihelion advance.
+
+These results demonstrate consistency with established relativity under conventional continuum assumptions. They do not yet establish that physical spacetime, the equivalence principle or fundamental physical constants emerge uniquely from arithmetic.
+
+## 7. Quantum Matter, Higgs Dynamics and Induced Gravity
+
+The framework investigates arithmetic mass spectra coupled to quantum matter, including matched scalar and fermionic degrees of freedom.
+
+The research addresses:
+
+- Radiative Higgs symmetry breaking.
+- Coleman–Weinberg and Gildener–Weinberg effective potentials.
+- Heat-kernel expansions.
+- Functional determinants.
+- Matter-induced Einstein–Hilbert curvature terms.
+- Graviton propagators and physical polarization states.
+- Nonlocal gravitational form factors.
+- Gravitational scattering amplitudes.
+- Optical-theorem and unitarity constraints.
+- Infrared cancellation and ultraviolet behavior.
+
+Under specified free-field assumptions, matched bosonic and fermionic matter contributions produce
+
+$$
+a_0=0,\qquad a_1=(1-4\xi)R.
+$$
+
+The leading volume coefficient cancels while a nonzero curvature contribution can survive.
+
+The resulting induced Newton coupling remains dependent on regulator choices, the matter spectrum and the underlying physical scale.
+
+Complete ultraviolet consistency and radiatively stable vacuum cancellation remain unresolved.
+
+## 8. Modular Geometry and Supergravity
+
+The arithmetic compactification programme investigates three distinguished quadratic parameters:
+
+$$
+D\in\{3,37,137\}.
+$$
+
+Associated research includes Pell geometry, modular transformations, Dedekind eta functions, modular-invariant potentials, conformal field theories and toroidal compactifications.
+
+The candidate internal geometry is
+
+$$
+T^6=T^2_3\times T^2_{37}\times T^2_{137}.
+$$
+
+The corresponding dimensionless rectangular metric has determinant 15207.
+
+Supergravity investigations address spontaneous supersymmetry breaking, Polonyi models, gravitino dynamics, no-scale geometry, supertrace constraints and modular vacuum stabilization.
+
+A technical cross-audit identified a global negative Kähler-metric defect in an earlier deformation. A corrected smooth localized construction preserves the relevant local vacuum structure while establishing positive moduli-space kinetic geometry under stated conditions.
+
+A complete globally stable quantum vacuum and realistic supersymmetric particle spectrum remain open research objectives.
+
+## 9. The Basel Problem, Spectral Zeta Functions and Vacuum Energy
+
+The framework incorporates Euler's Basel identity
+
+$$
+\zeta(2)=\frac{\pi^2}{6}
+$$
+
+and its generalization through Bernoulli numbers:
+
+$$
+\zeta(2n)=
+\frac{(-1)^{n+1}B_{2n}(2\pi)^{2n}}
+{2(2n)!}.
+$$
+
+These identities connect the original arithmetic foundations to spectral geometry, compactification and quantum effective actions.
+
+Research includes:
+
+- Kaluza–Klein mass towers.
+- Generalized Epstein zeta functions.
+- Poisson resummation.
+- Spectral determinants and modular functions.
+- Periodic and antiperiodic quantum boundary conditions.
+- Casimir energies.
+- Radion stabilization.
+- Six-dimensional arithmetic winding spectra.
+
+An extended Casimir model demonstrates conditional local stabilization of a compactification radius and permits anti-de Sitter, Minkowski and positive-energy radial vacua through an adjustable bulk vacuum coefficient.
+
+The local renormalized cosmological constant is not determined by these spectral calculations alone.
+
+## 10. Arithmetic String Dynamics and D-Branes
+
+The framework explores mathematical relationships between Collatz inverse histories, noncommutative matrix algebras and string-theoretic constructions.
+
+Arithmetic history matrices reproduce the multiplication structure of Chan–Paton endpoint factors:
+
+$$
+E_{uv}E_{rs}=\delta_{vr}E_{us}.
+$$
+
+The affine commutator of the rationally extended Collatz inverse branches produces the translation
+
+$$
+C(x)=x-\frac13.
+$$
+
+Modulo $2^k$, this translation generates a cyclic graph of exactly $2^k$ vertices.
+
+Under an explicitly rescaled graph metric, these cycles converge to a continuous circle.
+
+Introducing harmonic nearest-neighbor dynamics gives the oscillator spectrum
+
+$$
+\omega_p=
+\frac{2c_s}{a}
+\left|\sin\frac{\pi p}{N}\right|.
+$$
+
+Its continuum limit reproduces free periodic string-like oscillations.
+
+The corresponding bulk-subtracted quantum vacuum energy converges to
+
+$$
+E_{\mathrm{Casimir}}
+=-\frac{\pi\hbar c_s}{6L}.
+$$
+
+These constructions establish mathematically controlled string analogues. Physical string tension, worldsheet supersymmetry, conformal anomaly cancellation, critical spacetime dimensionality and interacting closed-string gravitons have not yet been derived from arithmetic.
+
+## 11. Formal Theorems, Lemmas and Proofs — v2.1L
+
+The expanded mathematical edition contains:
+
+- Five principal theorems.
+- Seventeen supporting lemmas.
+- Five corollaries.
+- Twenty-seven accompanying proofs.
+
+The principal results establish:
+
+**Theorem 1 — Arithmetic History Algebra**
+
+The finite-depth Collatz inverse-history representation generates full complex matrix algebras.
+
+**Theorem 2 — Lorentzian Quadratic Geometry**
+
+The Hermitian elementary branch algebra admits the exact four-dimensional Minkowski quadratic form.
+
+**Theorem 3 — Arithmetic Circular Continuum**
+
+Affine Collatz commutators generate cyclic graphs converging to a continuous circle under specified metric rescaling.
+
+**Theorem 4 — Quantum Casimir Energy**
+
+The quantized harmonic arithmetic cycle reproduces the standard periodic scalar Casimir energy after bulk subtraction.
+
+**Theorem 5 — Generalized D-Brane Intersection Obstruction**
+
+For the specified rectangular arithmetic six-torus, product symplectic structure and phase-zero special Lagrangian calibration, compact oriented special Lagrangian three-cycles have identically vanishing mutual homological intersection numbers.
+
+The fifth theorem reduces the relevant integral homology lattice from rank twenty to a primitive rank-four isotropic subgroup generated by
+
+$$
+xxx,\quad xyy,\quad yxy,\quad yyx.
+$$
+
+Consequently,
+
+$$
+[\Sigma_a]\cdot[\Sigma_b]=0.
+$$
+
+This establishes an obstruction to net chiral intersections in the specified bulk D6-brane compactification, including nonfactorized special Lagrangian cycles.
+
+The theorem does not exclude more general string compactifications, modified moduli, fractional branes, fluxed branes or alternative calibration structures.
+
+## 12. Computational Verification and Cross-Auditing
+
+The research employs analytical derivations, exact integer and rational arithmetic, symbolic computation, high-precision numerical calculations and independent numerical comparisons.
+
+Computational resources include Python, NumPy, SciPy, SymPy and mpmath.
+
+The programme incorporates technical cross-verification performed with ChatGPT and Google Gemini, including corrections to numerical calculations, algebraic conventions and physical interpretations.
+
+Verification procedures include reproducibility checks, archived computational outputs, matrix diagonalization, spectral calculations, exact homology calculations and independent evaluations of mathematical expressions.
+
+Computational reproducibility supports the reported calculations but does not replace analytical proof, experimental validation or independent human peer review.
+
+## 13. Research Papers and Repository Resources
+
+The repository includes the master research monograph, subsequent technical manuscripts, standalone mathematical papers and verification engines.
+
+Selected resources:
+
+- [Master Research Monograph](Collatz_Runyan_Master_Paper.pdf)
+- [Cross-Verified Technical Synthesis v1.5R](Collatz_Runyan_Cross_Verified_Synthesis_v15R.pdf)
+- [Arithmetic Reconstruction of Special and General Relativity v1.9](Collatz-Runyan%20Framework/Collatz_Runyan_Arithmetic_Relativity_v19.pdf)
+- [Verified Mathematical Proofs v2.1R](Proofs/Collatz_Runyan_Verified_Proofs_v21R.pdf)
+- [Expanded Theorems, Lemmas and Proofs v2.1L](Proofs/Collatz_Runyan_Theorems_Lemmas_Proofs_v21L.pdf)
+- [Independent Proof Verification Engine](Proofs/runyan_proof_audit_v21.py)
+
+## 14. Interactive Three-Dimensional Research Laboratory
+
+The [Collatz–Runyan 3D Visualization Suite v3.0](Collatz_Runyan_3D_Visualization_Suite_v3.html) provides 38 interactive visualization environments across seven research categories.
+
+These environments cover arithmetic and modular geometry, compactification, particle physics, spacetime refinement, induced gravity, Higgs potentials, gravitational scattering, graviton propagators and modular supergravity.
+
+The suite includes numerical surfaces, mathematical diagrams and schematic physical interpretations.
+
+It is designed to operate offline in a modern browser, with interactive WebGL rendering where supported and static visualization fallbacks.
+
+## 15. Scientific Status and Open Problems
+
+The Collatz–Runyan Framework remains an exploratory research programme.
+
+Established mathematical results are explicitly distinguished from conditional constructions, computational benchmarks, speculative physical interpretations and unresolved conjectures.
+
+Major open objectives include:
+
+- A universal proof of the Collatz conjecture.
+- A dynamical four-dimensional continuum emerging from arithmetic.
+- Derivation of the equivalence principle.
+- Arithmetic selection of physical gauge symmetries.
+- A realistic interacting chiral particle spectrum.
+- Regulator-independent predictions of fundamental physical constants.
+- Radiatively stable vacuum-energy cancellation.
+- Quantum-consistent worldsheet supersymmetry and string dynamics.
+- Emergent interacting massless spin-two particles.
+- A complete ultraviolet-consistent quantum theory of gravity.
+
+The framework does not claim to have established a theory of everything, solved the cosmological constant problem or experimentally discovered new physical laws.
+
+## 16. Future Research Directions
+
+The next research stages concentrate on arithmetic discrete Cartan geometry, noncommutative spectral triples, adaptive Diophantine descent certificates, coupled modular vacuum stabilization, Virasoro symmetry, worldsheet supersymmetry and candidate emergent gravitational degrees of freedom.
+
+The long-term objective is to determine whether established physical theories can arise as controlled effective descriptions of a deeper arithmetic quantum structure.
+
+## 17. Scientific Review and Collaboration
+
+Independent mathematical verification, constructive criticism, replication of computational experiments, literature comparisons and technical corrections are welcomed.
+
+Researchers are encouraged to examine both successful constructions and documented mathematical obstructions.
+
+The programme prioritizes mathematical rigor over numerical coincidence, reproducible evidence over speculative interpretation, and transparent correction over unsupported claims.
+
+## 18. Citation and Research Provenance
+
+**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.1L.
+
+When citing individual results, reference the relevant version-specific manuscript, theorem or computational experiment. Use the corresponding Zenodo DOI when available.
+
+AI-assisted mathematical investigation, computational development and technical auditing include contributions from OpenAI ChatGPT and Google Gemini.
+
+The manuscripts remain subject to author review, independent mathematical scrutiny and formal peer review.
+
+For licensing and reuse conditions, consult the repository's [LICENSE](LICENSE) file.
+
+---
+
+**From discrete arithmetic to continuous geometry — investigating the mathematical foundations of spacetime, matter and fundamental interactions.**
