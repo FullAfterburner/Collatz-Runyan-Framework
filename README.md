@@ -3,9 +3,9 @@
 ## Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics
 
 **Author:** Jake Thomas Runyan  
-**Research Edition:** v2.1L — Theorems, Supporting Lemmas and Complete Proofs  
+**Research Edition:** v2.2 — Formal Mathematical and Lean 4 Verification Edition (building on v2.1L)  
 **Updated:** November 25, 2026  
-**Status:** Independent mathematical and theoretical physics research programme.
+**Status:** Independent mathematical and theoretical physics research programme; selected statements machine-checked in Lean 4; broader results remain subject to independent review.
 
 ## Abstract
 
@@ -15,7 +15,9 @@ The framework explores whether fundamental geometric structures and physical law
 
 Beginning with the Collatz transformation, Bernoulli numbers, 2-adic and 3-adic arithmetic, Pell equations and Diophantine relationships, the research develops arithmetic spectral operators, modular geometries, quantum matter models, relativistic symmetries and candidate continuum limits.
 
-The repository contains mathematical manuscripts, formal theorems, supporting lemmas, analytical proofs, symbolic derivations, Python verification engines, computational experiments, numerical results, technical cross-audits and interactive three-dimensional visualizations.
+The repository contains mathematical manuscripts, formal theorems, supporting lemmas, analytical proofs, Lean 4 formalizations with archived compilation and axiom-audit evidence, symbolic derivations, Python verification engines, computational experiments, numerical results, technical cross-audits and interactive three-dimensional visualizations.
+
+**Start here:** [Expanded proof paper v2.1L](Proofs/Collatz_Runyan_Theorems_Lemmas_Proofs_v21L.pdf) · [Lean formal verification v2.2](Lean%20Proofs/README.md) · [Kernel build log](Lean%20Proofs/kernel_verification.txt) · [Axiom audit](Lean%20Proofs/axiom_verification.txt).
 
 The research emphasizes reproducibility, mathematical consistency, transparent assumptions, independent verification and the documentation of negative results.
 
@@ -366,7 +368,47 @@ This establishes an obstruction to net chiral intersections in the specified bul
 
 The theorem does not exclude more general string compactifications, modified moduli, fractional branes, fluxed branes or alternative calibration structures.
 
-## 12. Computational Verification and Cross-Auditing
+## 12. Lean 4 Formal Verification — v2.2
+
+The repository now includes a [Lean 4 and Mathlib project](Lean%20Proofs/README.md), pinned to Lean v4.19.0, implementing selected mathematical statements from the research programme. A successful local rebuild is documented in the archived kernel build log, including compilation of all four project modules and the root module. A separate axiom audit records the dependencies of seven selected theorems.
+
+| Formal statement | Scope |
+| --- | --- |
+| `affine_commutator` | Exact commutator of rational affine branch extensions |
+| `descent_certificate` | Descent equivalence given an affine trajectory identity and positive denominator |
+| `matrix_unit_mul` | Matrix-unit multiplication assuming the cancellation relations |
+| `lorentzian_polynomial` | Real polynomial identity of Minkowski signature |
+| `hermitian_determinant_formula` | Algebraic two-by-two determinant identity |
+| `boost_invariant` | Preservation of the Lorentz quadratic form under the stated boost condition |
+| `supported_pairing_zero` | Zero integral pairing for vectors supported on the four admissible coordinate triples |
+
+The recorded audit lists only standard Lean foundational axioms: `propext`, `Classical.choice` and `Quot.sound`. No `sorryAx` dependency appears in the seven audited statements. Kernel type-checking and axiom inspection are distinct verification steps; the latter is not a substitute for the former.
+
+### Reproduce the verification
+
+Install [Lean 4](https://lean-lang.org/install/) and Git, then run from the repository root:
+
+```sh
+cd "Lean Proofs"
+lake exe cache get
+lake build CollatzRunyan
+lake env lean Verification.lean
+```
+
+The dependency manifest is included. On a new setup, if dependency resolution is required, run `lake update` first. A GitHub Actions workflow is also provided for automated builds.
+
+### Archived evidence
+
+- [Kernel build log](Lean%20Proofs/kernel_verification.txt)
+- [Axiom dependency audit](Lean%20Proofs/axiom_verification.txt)
+- [Build verification log](Lean%20Proofs/build_verification.txt)
+- [Verification source](Lean%20Proofs/Verification.lean)
+- [Dependency manifest](Lean%20Proofs/lake-manifest.json)
+- [Lean project source and documentation](Lean%20Proofs/README.md)
+
+The evidence documents a successful author-run local build; it is not an independent human peer review or a claim that a fresh external build has been performed for this README update. The full geometric D-brane theorem, the complete Hilbert-space branch representation, the circle continuum limit and the Casimir limit remain to be formalized. Lean establishes the encoded propositions under their stated hypotheses; it does not establish originality, empirical validity, or the entire framework.
+
+## 13. Computational Verification and Cross-Auditing
 
 The research employs analytical derivations, exact integer and rational arithmetic, symbolic computation, high-precision numerical calculations and independent numerical comparisons.
 
@@ -378,7 +420,7 @@ Verification procedures include reproducibility checks, archived computational o
 
 Computational reproducibility supports the reported calculations but does not replace analytical proof, experimental validation or independent human peer review.
 
-## 13. Research Papers and Repository Resources
+## 14. Research Papers and Repository Resources
 
 The repository includes the master research monograph, subsequent technical manuscripts, standalone mathematical papers and verification engines.
 
@@ -391,7 +433,7 @@ Selected resources:
 - [Expanded Theorems, Lemmas and Proofs v2.1L](Proofs/Collatz_Runyan_Theorems_Lemmas_Proofs_v21L.pdf)
 - [Independent Proof Verification Engine](Proofs/runyan_proof_audit_v21.py)
 
-## 14. Interactive Three-Dimensional Research Laboratory
+## 15. Interactive Three-Dimensional Research Laboratory
 
 The [Collatz–Runyan 3D Visualization Suite v3.0](Collatz_Runyan_3D_Visualization_Suite_v3.html) provides 38 interactive visualization environments across seven research categories.
 
@@ -401,7 +443,7 @@ The suite includes numerical surfaces, mathematical diagrams and schematic physi
 
 It is designed to operate offline in a modern browser, with interactive WebGL rendering where supported and static visualization fallbacks.
 
-## 15. Scientific Status and Open Problems
+## 16. Scientific Status and Open Problems
 
 The Collatz–Runyan Framework remains an exploratory research programme.
 
@@ -422,13 +464,13 @@ Major open objectives include:
 
 The framework does not claim to have established a theory of everything, solved the cosmological constant problem or experimentally discovered new physical laws.
 
-## 16. Future Research Directions
+## 17. Future Research Directions
 
-The next research stages concentrate on arithmetic discrete Cartan geometry, noncommutative spectral triples, adaptive Diophantine descent certificates, coupled modular vacuum stabilization, Virasoro symmetry, worldsheet supersymmetry and candidate emergent gravitational degrees of freedom.
+The next formal verification milestone is to complete the supporting lemmas for the special Lagrangian intersection obstruction, especially multiquadratic radical independence and the passage from geometric constraints to integral homology. The broader research stages concentrate on arithmetic discrete Cartan geometry, noncommutative spectral triples, adaptive Diophantine descent certificates, coupled modular vacuum stabilization, Virasoro symmetry, worldsheet supersymmetry and candidate emergent gravitational degrees of freedom.
 
 The long-term objective is to determine whether established physical theories can arise as controlled effective descriptions of a deeper arithmetic quantum structure.
 
-## 17. Scientific Review and Collaboration
+## 18. Scientific Review and Collaboration
 
 Independent mathematical verification, constructive criticism, replication of computational experiments, literature comparisons and technical corrections are welcomed.
 
@@ -436,9 +478,9 @@ Researchers are encouraged to examine both successful constructions and document
 
 The programme prioritizes mathematical rigor over numerical coincidence, reproducible evidence over speculative interpretation, and transparent correction over unsupported claims.
 
-## 18. Citation and Research Provenance
+## 19. Citation and Research Provenance
 
-**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.1L.
+**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.2.
 
 When citing individual results, reference the relevant version-specific manuscript, theorem or computational experiment. Use the corresponding Zenodo DOI when available.
 
