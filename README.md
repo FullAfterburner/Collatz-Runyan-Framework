@@ -7,6 +7,8 @@
 **Updated:** November 25, 2026  
 **Status:** Independent mathematical and theoretical physics research programme; selected statements machine-checked in Lean 4; broader results remain subject to independent review.
 
+https://doi.org/10.5281/zenodo.24517681
+
 ## Abstract
 
 The Collatz–Runyan Arithmetic Framework is an interdisciplinary research programme investigating mathematical relationships between discrete arithmetic, number theory, noncommutative geometry, quantum mechanics, particle physics, special and general relativity, quantum gravity, supergravity and string theory.
