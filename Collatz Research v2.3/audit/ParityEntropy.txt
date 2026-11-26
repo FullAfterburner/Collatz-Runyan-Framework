@@ -1,0 +1,4 @@
+'CollatzRunyan.ParityEntropy.odd_cube_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityEntropy.step_cube_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityEntropy.weighted_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityEntropy.nondescending_odd_count' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,6 @@
+'CollatzRunyan.DiophantineGap.offset_linear_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.DiophantineGap.first_crossing_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.DiophantineGap.gap_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.DiophantineGap.rational_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.DiophantineGap.fixed_grid_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.DiophantineGap.fifty_billion_cap' depends on axioms: [propext, Classical.choice, Quot.sound]

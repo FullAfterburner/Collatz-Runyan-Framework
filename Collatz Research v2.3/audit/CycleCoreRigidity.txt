@@ -1,0 +1,7 @@
+'CollatzRunyan.CycleCoreRigidity.core_mod_power' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.CycleCoreRigidity.powers_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleCoreRigidity.core_divisibility_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleCoreRigidity.shadow_param_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleCoreRigidity.shadow_param_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleCoreRigidity.shadow_steps' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.CycleCoreRigidity.shadow_not_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]

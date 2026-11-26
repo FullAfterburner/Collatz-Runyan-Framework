@@ -1,0 +1,7 @@
+'CollatzRunyan.CycleExclusionResearch.cycle_min_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleExclusionResearch.odd_step_telescope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleExclusionResearch.odd_run_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleExclusionResearch.run_endpoint_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleExclusionResearch.grid_identity' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.CycleExclusionResearch.grid_at_least_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleExclusionResearch.cycle_run_count_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

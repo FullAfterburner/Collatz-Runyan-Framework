@@ -1,0 +1,11 @@
+.\CycleMinimaResearch.lean:122:69: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.\CycleMinimaResearch.lean:126:51: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'CollatzRunyan.CycleMinimaResearch.even_run_scale' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.CycleMinimaResearch.local_minimum_transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleMinimaResearch.odd_run_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleMinimaResearch.next_minimum_not_multiple_three' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.CycleMinimaResearch.power_ratio_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleMinimaResearch.local_minimum_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.CycleMinimaResearch.minima_chain_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

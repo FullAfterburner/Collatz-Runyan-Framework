@@ -1,0 +1,5 @@
+'CollatzRunyan.ParityComplexity.code_eq_implies_prefix' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.ParityComplexity.code_difference_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityComplexity.code_collision_in_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityComplexity.finite_code_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityComplexity.finite_orbit_complexity' depends on axioms: [propext, Classical.choice, Quot.sound]

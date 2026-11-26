@@ -1,0 +1,5 @@
+'CollatzRunyan.ParityRigidity.affine_telescoping' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.ParityRigidity.affine_repeat_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityRigidity.parity_repeat_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityRigidity.parity_repeat_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.ParityRigidity.zero_discriminant_return' depends on axioms: [propext, Classical.choice, Quot.sound]
