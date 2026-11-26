@@ -1,0 +1,116 @@
+[
+  {
+    "file": "BinaryAdelicDuality.lean",
+    "git_blob": "090a85acf6205210b417ef4be4163aff5cb7c6e3",
+    "sha256": "63d8a057280f525305b025e2f4b6d06a377123c5d3d88076a5bc0c707d441fd1",
+    "declarations": 8
+  },
+  {
+    "file": "BinaryConjugation.lean",
+    "git_blob": "57f160c03b0144f73c6bb03c5a630987c0f61870",
+    "sha256": "1526cdae67507395865b126af86cbfb85cecd5e39ecc1dfb4911a703bcf4a50d",
+    "declarations": 19
+  },
+  {
+    "file": "BinaryDynamicalCompatibility.lean",
+    "git_blob": "16d5622a069494343d122aed5dc6213ed68babd1",
+    "sha256": "8db89c94f5186c4a8e60a86b2a93516b65b8e1d44f5b8806ca1e53e0eee1e6d2",
+    "declarations": 9
+  },
+  {
+    "file": "BinarySpectralIteration.lean",
+    "git_blob": "14d6a1282065c39bfdc081b8bdec83b90c70623f",
+    "sha256": "21b28e41eee5b3aa5932832430d081e6f5c1c8fbe720a91aea1187092e31325e",
+    "declarations": 6
+  },
+  {
+    "file": "BinarySpectralSymmetry.lean",
+    "git_blob": "459dab2bc969da532656be3828bceaf295740bd1",
+    "sha256": "f807fdfa2a9b7dfb78afd5d38e305f94706727c9c1bbf6192875f39ee111e749",
+    "declarations": 12
+  },
+  {
+    "file": "CollatzAdelicCompatibility.lean",
+    "git_blob": "eb18dac764fee7c2f471bae8caf9e9b43a856222",
+    "sha256": "7dde622d9fe04fa3890c338448ba440433840cc6dacd88c9de1a96fe03b9d5b0",
+    "declarations": 8
+  },
+  {
+    "file": "CollatzAdelicDrift.lean",
+    "git_blob": "63ef6f8b4e33c7ab886046aab79c56b137d18975",
+    "sha256": "932272a8ebc4a6ca78fcf095d152d0a041cea92cdd2a2b2a9d2e19897d25afbf",
+    "declarations": 3
+  },
+  {
+    "file": "CollatzCorrectionBounds.lean",
+    "git_blob": "48645999958e405a8a9078b47c5e8ad0df206b3f",
+    "sha256": "f618de24093a35d41b431cfc680d3c40249fdcb730a512719870fba678d69c70",
+    "declarations": 6
+  },
+  {
+    "file": "CollatzCycleAdmissibility.lean",
+    "git_blob": "bfc2358272fdde0db769e00b7235dc6e3bb8bdb8",
+    "sha256": "2b49e91f1f4e270989055c2be0ff26358c28ab98bdc426137a98e0fbc9e772de",
+    "declarations": 5
+  },
+  {
+    "file": "CollatzCycleAffineRigidity.lean",
+    "git_blob": "edc2b4c4164c442a71d53ad483391af15fcb5f70",
+    "sha256": "ef5a8d1f23375f87b983f8d1e9442cc081f0c18d592aaea5994faeb43e5018b4",
+    "declarations": 6
+  },
+  {
+    "file": "CollatzCycleBudget.lean",
+    "git_blob": "000f3d4576ac86bf02bcd40b7f24f7896f8547a5",
+    "sha256": "555e07de9d79afd76c4290854378e1ce8b0ed19c2f2beb74f3869c7ca05542e1",
+    "declarations": 3
+  },
+  {
+    "file": "CollatzCycleExclusionCertificate.lean",
+    "git_blob": "83bc820c7d7801ba5203b9811d91e93c50a55d9f",
+    "sha256": "50439e4fc6449a29765b28625107b372f9216cda6223a9dfe9217a66a75f26ff",
+    "declarations": 2
+  },
+  {
+    "file": "CollatzCycleMinimumRigidity.lean",
+    "git_blob": "078a092f6f2c2d31ec164dbae9e0c1b581852b1e",
+    "sha256": "931862c3d4a35c14aeb0d5d6637c20d4e1d77b8b174aaf0ec943e1db6318f77b",
+    "declarations": 3
+  },
+  {
+    "file": "CollatzCyclicRotationRigidity.lean",
+    "git_blob": "1527ff082ae0e8e6dc471263fbcb126454778096",
+    "sha256": "1c44468c4b3f1b6b492b33a1c327dabd4bbfa41d3caab4236a861222381d5648",
+    "declarations": 10
+  },
+  {
+    "file": "CollatzIterationBridge.lean",
+    "git_blob": "4211924817b123a4dc56ec83e61fc5cbcda5b5ec",
+    "sha256": "a54c3f0d95ca5a119d16a582da8f93a8c77401b723258de23471ba27ae35192b",
+    "declarations": 8
+  },
+  {
+    "file": "ConjugateCoefficientRigidity.lean",
+    "git_blob": "b9ed6374d4557703b3f1a0aadcb1f4a8d04b0740",
+    "sha256": "14247c7e7b0386a9e9a60af5fc9ae422978fccb5e3023dc018131f09411bfd03",
+    "declarations": 12
+  },
+  {
+    "file": "ConjugateCycleRigidity.lean",
+    "git_blob": "2fcab6f6482d594c7eb6eb6f8189ac3433f8ffab",
+    "sha256": "6cefdc8dc2064d4e18b5729b578ae9b05a4bccd0c1848b0e4bacfddbecff65f9",
+    "declarations": 9
+  },
+  {
+    "file": "IntegratedNonDescentRigidity.lean",
+    "git_blob": "c3d3ac969ae17f4a7148827c10d171193234c7b1",
+    "sha256": "19e1380762a38ba004c815d9f79fb43b6520a715f529b52c98995f6cfe12ab42",
+    "declarations": 3
+  },
+  {
+    "file": "TwoAdicSectorDecomposition.lean",
+    "git_blob": "f6dc6efc4cb9d788d5b0e293fc8f74a7100607a8",
+    "sha256": "67776e5c88206e67b0972b14111308c31177d7a28efc53812ad4343664ba0012",
+    "declarations": 10
+  }
+]
