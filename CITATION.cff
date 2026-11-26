@@ -1,16 +1,15 @@
 cff-version: 1.2.0
-message: "If you use this research software or its formal proofs, please cite the archived v2.4 release."
+message: "If you use this software or its formal proofs, please cite version 2.6; use the version-specific Zenodo DOI when confirmed."
 type: software
 title: "The Collatz–Runyan Arithmetic Framework"
 authors:
   - family-names: "Runyan"
     given-names: "Jake Thomas"
-version: "2.4"
+version: "2.6"
 date-released: "2026-11-26"
-doi: "10.5281/zenodo.24549264"
 repository-code: "https://github.com/FullAfterburner/Collatz-Runyan-Framework"
-url: "https://doi.org/10.5281/zenodo.24549264"
-abstract: "An interdisciplinary arithmetic research programme with formal Collatz supplements. A fresh automated audit verified all 305 inventoried theorem declarations across 36 mathematical Lean modules with no sorryAx dependencies. Counts include supporting and repeated results. This is not a proof or disproof of the Collatz conjecture or independent peer review."
+url: "https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.6"
+abstract: "The v2.6 arithmetic supplement adds 19 Lean modules and 142 inventoried theorem and lemma declarations. Successful automated verification reproduces the v2.5 baseline (43 modules, 418 declarations) and verifies 26 combined v2.5/v2.6 modules and 255 declarations, yielding 62 distinct modules and 560 inventoried declarations. The audit checks exact source identities and individual axiom dependencies; no sorryAx dependencies were reported. Results include binary conjugation, spectral symmetry, adelic arithmetic, conditional iteration correspondence, non-descent restrictions, and cycle admissibility. The Collatz conjecture remains unresolved; automated verification is not independent peer review."
 keywords:
   - Collatz conjecture
   - number theory
@@ -19,3 +18,7 @@ keywords:
   - formal verification
   - arithmetic dynamics
   - Diophantine approximation
+  - 2-adic analysis
+  - adelic duality
+  - cycle rigidity
+  - binary conjugation

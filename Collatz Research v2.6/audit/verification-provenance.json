@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "source_commit": "cd21b9c77d192bb3b016b95514b3916637d2ddc2",
+  "release_tag": "v2.6",
+  "run_id": 45911485057,
+  "run_url": "https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45911485057",
+  "job_id": 140220658173,
+  "completed_at": "2026-11-26T23:46:04Z",
+  "artifact": {
+    "id": 15161340598,
+    "name": "collatz-v26-audit",
+    "digest": "sha256:a909b63c979bb782c595756dbceef2bc1c5a09c35ee9e27097e28ad217d62f92",
+    "size_bytes": 80277,
+    "url": "https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45911485057/artifacts/15161340598"
+  },
+  "inventory": {
+    "baseline_modules": 43,
+    "baseline_declarations": 418,
+    "combined_modules": 26,
+    "combined_declarations": 255,
+    "overlap_modules": 7,
+    "overlap_declarations": 113,
+    "new_modules": 19,
+    "new_declarations": 142,
+    "distinct_total_modules": 62,
+    "distinct_total_declarations": 560
+  },
+  "evidence_note": "GitHub run, job and artifact metadata checked; audit steps succeeded. Artifact digest is reported by GitHub; archive bytes not independently downloaded or rehashed in this metadata update."
+}
