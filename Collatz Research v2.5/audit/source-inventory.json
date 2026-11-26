@@ -1,0 +1,213 @@
+{
+    "status":  "source reconciliation only; no new Lean compilation or axiom audit performed",
+    "generated_utc":  "2026-11-26T16:30:58.6757849Z",
+    "expected_new_declarations":  113,
+    "modules":  [
+                    {
+                        "module":  "SparseCoefficientRigidity",
+                        "source":  "SparseCoefficientRigidity.lean",
+                        "verified_backup":  "SparseCoefficientRigidity_verified.lean",
+                        "sha256":  "2ec2e751a1f85eeb1c218ef8449e9690ed4be9091cc768568afd8b38f74b35d5",
+                        "bytes":  12642,
+                        "imports":  [
+                                        "Mathlib"
+                                    ],
+                        "declarations":  [
+                                             "CollatzRunyan.SparseCoefficientRigidity.coefficient_step",
+                                             "CollatzRunyan.SparseCoefficientRigidity.shortcut_three_free",
+                                             "CollatzRunyan.SparseCoefficientRigidity.orbit_three_free",
+                                             "CollatzRunyan.SparseCoefficientRigidity.odd_rank_injective",
+                                             "CollatzRunyan.SparseCoefficientRigidity.odd_rank_bounds",
+                                             "CollatzRunyan.SparseCoefficientRigidity.rank_major_ge_one",
+                                             "CollatzRunyan.SparseCoefficientRigidity.major_ge_one",
+                                             "CollatzRunyan.SparseCoefficientRigidity.rank_major_range",
+                                             "CollatzRunyan.SparseCoefficientRigidity.ranked_nine_bound",
+                                             "CollatzRunyan.SparseCoefficientRigidity.ninth_step_bound",
+                                             "CollatzRunyan.SparseCoefficientRigidity.orbit_product_bound",
+                                             "CollatzRunyan.SparseCoefficientRigidity.distinct_visit_product",
+                                             "CollatzRunyan.SparseCoefficientRigidity.injective_avoids_small",
+                                             "CollatzRunyan.SparseCoefficientRigidity.exists_prefix_max",
+                                             "CollatzRunyan.SparseCoefficientRigidity.record_eighth_bound",
+                                             "CollatzRunyan.SparseCoefficientRigidity.prefix_coefficient_growth"
+                                         ],
+                        "count":  16
+                    },
+                    {
+                        "module":  "CoalescentCoefficientRigidity",
+                        "source":  "CoalescentCoefficientRigidity.lean",
+                        "verified_backup":  "CoalescentCoefficientRigidity_verified.lean",
+                        "sha256":  "ed89c922aa28a0599fb1e4431452b3057a0275744ca2f4876bc22214cb336264",
+                        "bytes":  20007,
+                        "imports":  [
+                                        "Mathlib"
+                                    ],
+                        "declarations":  [
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.coefficient_step",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.shortcut_three_free",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.orbit_three_free",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.odd_rank_injective",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.odd_rank_bounds",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.sibling_steps",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.sibling_exclusion",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.representative_bounds",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.representative_collision",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.representative_visit_injective",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.representative_rank_allowed",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.compress_injective",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.visit_rank_bounds",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.visit_rank_injective",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.rank_major_ge_one",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.major_ge_one",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.rank_major_range",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.tenth_correction",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.ranked_ten_bound",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.tenth_step_bound",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.orbit_product_bound",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.injective_avoids_small",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.distinct_visit_product",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.exists_prefix_max",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.record_ninth_bound",
+                                             "CollatzRunyan.CoalescentCoefficientRigidity.prefix_coefficient_growth"
+                                         ],
+                        "count":  26
+                    },
+                    {
+                        "module":  "FamilyCoalescenceRigidity",
+                        "source":  "FamilyCoalescenceRigidity.lean",
+                        "verified_backup":  "FamilyCoalescenceRigidity_verified.lean",
+                        "sha256":  "144e6bc6bc6d5305b4fdc3f383bf50f20b6bce21e4a92ae148fd9fa12d228c9b",
+                        "bytes":  9487,
+                        "imports":  [
+                                        "Mathlib"
+                                    ],
+                        "declarations":  [
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.orbit_add",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.orbit_shift",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.shortcut_even",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.shortcut_odd",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.orbit_pow_two",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_step",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_merge",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_penultimate",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.proper_family_exclusion",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_refl",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_trans",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_comparable",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_visit_unique",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.shared_family_visit_unique",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.family_minimum",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.removed_first",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.removed_second",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.eligible_representative",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.allowed_residue_card",
+                                             "CollatzRunyan.FamilyCoalescenceRigidity.representative_residue"
+                                         ],
+                        "count":  20
+                    },
+                    {
+                        "module":  "FamilyCorrectionProduct",
+                        "source":  "FamilyCorrectionProduct.lean",
+                        "verified_backup":  "FamilyCorrectionProduct_verified.lean",
+                        "sha256":  "948a96fbd5eb4989bc500e48505e602365e546fb0fe105c91d824b7ed101d33d",
+                        "bytes":  11808,
+                        "imports":  [
+                                        "Mathlib"
+                                    ],
+                        "declarations":  [
+                                             "CollatzRunyan.FamilyCorrectionProduct.allowed_residue_card",
+                                             "CollatzRunyan.FamilyCorrectionProduct.correction_ge_one",
+                                             "CollatzRunyan.FamilyCorrectionProduct.weight_ge_one",
+                                             "CollatzRunyan.FamilyCorrectionProduct.prefix_ge_one",
+                                             "CollatzRunyan.FamilyCorrectionProduct.prefix_mono",
+                                             "CollatzRunyan.FamilyCorrectionProduct.prefix_add",
+                                             "CollatzRunyan.FamilyCorrectionProduct.positive_block",
+                                             "CollatzRunyan.FamilyCorrectionProduct.symmetric_power",
+                                             "CollatzRunyan.FamilyCorrectionProduct.uniform_ge_one",
+                                             "CollatzRunyan.FamilyCorrectionProduct.correction_block_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.block_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.uniform_power_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.block_ge_one",
+                                             "CollatzRunyan.FamilyCorrectionProduct.block_power_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.first_block_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.complete_blocks_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.large_prefix_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.interval_certificate",
+                                             "CollatzRunyan.FamilyCorrectionProduct.small_prefix_bound",
+                                             "CollatzRunyan.FamilyCorrectionProduct.family_product_bound"
+                                         ],
+                        "count":  20
+                    },
+                    {
+                        "module":  "FamilyCoefficientRigidity",
+                        "source":  "FamilyCoefficientRigidity.lean",
+                        "verified_backup":  "FamilyCoefficientRigidity_verified.lean",
+                        "sha256":  "6f9b38302874af386ce45fccbb80376adf1b006cecad4e7858013f6deff4ccf4",
+                        "bytes":  11983,
+                        "imports":  [
+                                        "SparseCoefficientRigidity",
+                                        "FamilyCoalescenceRigidity",
+                                        "FamilyCorrectionProduct"
+                                    ],
+                        "declarations":  [
+                                             "CollatzRunyan.FamilyCoefficientRigidity.orbit_agreement",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.representative_spec",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.eligible_odd_visit",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.representative_visit_injective",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.correction_antitone",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.representative_weight",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.shortcut_product_identity",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.orbit_product_identity",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.prefix_as_product",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.finite_weight_ge_one",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.distinct_family_product",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.record_twenty_ninth_bound",
+                                             "CollatzRunyan.FamilyCoefficientRigidity.prefix_coefficient_growth"
+                                         ],
+                        "count":  13
+                    },
+                    {
+                        "module":  "AsymptoticCoefficientRigidity",
+                        "source":  "AsymptoticCoefficientRigidity.lean",
+                        "verified_backup":  "AsymptoticCoefficientRigidity_verified.lean",
+                        "sha256":  "1e7bf7b224aaadfcdb62674bb0082dd4b2bd29b41eebf10b5d7ef668f0a26142",
+                        "bytes":  8904,
+                        "imports":  [
+                                        "FamilyCoefficientRigidity"
+                                    ],
+                        "declarations":  [
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.injective_escape",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.visit_correction_ge_one",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.visit_correction_le_rate",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.eventually_correction_le",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.correction_product_succ",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.correction_product_ge_one",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.tail_product_bound",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.eventual_product_envelope",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.eventual_exponential_envelope",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.eventual_scaled_coefficient_growth",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.eventual_no_exponential_contraction",
+                                             "CollatzRunyan.AsymptoticCoefficientRigidity.eventual_parity_power_bound"
+                                         ],
+                        "count":  12
+                    },
+                    {
+                        "module":  "ParityDriftConflict",
+                        "source":  "ParityDriftConflict.lean",
+                        "verified_backup":  "ParityDriftConflict_verified.lean",
+                        "sha256":  "c660876b2dd7d3d945438b995a0f37a637cfdf6c21c28ebb2a065f93cd788189",
+                        "bytes":  5242,
+                        "imports":  [
+                                        "AsymptoticCoefficientRigidity"
+                                    ],
+                        "declarations":  [
+                                             "CollatzRunyan.ParityDriftConflict.eventual_above_certified_frequency",
+                                             "CollatzRunyan.ParityDriftConflict.eventual_above_five_eighths",
+                                             "CollatzRunyan.ParityDriftConflict.certified_deficit_forces_repeat",
+                                             "CollatzRunyan.ParityDriftConflict.all_odd_run_formula",
+                                             "CollatzRunyan.ParityDriftConflict.arbitrarily_large_all_odd",
+                                             "CollatzRunyan.ParityDriftConflict.no_uniform_block_contraction"
+                                         ],
+                        "count":  6
+                    }
+                ]
+}
