@@ -3,11 +3,23 @@
 ## Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics
 
 **Author:** Jake Thomas Runyan  
-**Research Edition:** v2.2 — Formal Mathematical and Lean 4 Verification Edition (building on v2.1L)  
+**Research Edition:** v2.3 — Formal Collatz Descent, Parity Rigidity and Cycle Research Edition (supplementing v2.2)  
 **Updated:** November 25, 2026  
 **Status:** Independent mathematical and theoretical physics research programme; selected statements machine-checked in Lean 4; broader results remain subject to independent review.
 
 https://doi.org/10.5281/zenodo.24517681
+
+## v2.3 — Formal Collatz Descent, Parity Rigidity and Cycle Research
+
+The [v2.3 research supplement](Collatz%20Research%20v2.3/README.md) adds 13 standalone Lean 4 research modules and archived author-run audits of 89 selected declarations. The original v2.2 Lean project and its seven-statement audit remain unchanged.
+
+The supplement covers affine descent and convergence equivalences, repeated-block and global parity rigidity, finite parity complexity, necessary parity-frequency inequalities, binary residue reconstruction, first-crossing and Diophantine arithmetic, coefficient stopping-time restrictions, and hypothetical cycle minima and odd-core arithmetic.
+
+The archived logs record successful individual-file checks using Lean and Mathlib v4.19.0; the reported dependencies are standard Lean foundational axioms, with no `sorryAx` dependencies in the 89 audited declarations. See the [audit directory](Collatz%20Research%20v2.3/audit), [environment record](Collatz%20Research%20v2.3/audit/environment.txt), and [integrity manifest](Collatz%20Research%20v2.3/SHA256SUMS.txt). Reproduction instructions are in the supplement README. A clean independent rebuild of the packaged supplement has not yet been performed.
+
+**Scope and limitations:** v2.3 is not a proof or disproof of the Collatz conjecture. Universal descent, divergence exclusion and nontrivial positive cycle exclusion remain open. The audits establish only the encoded statements under their explicit hypotheses; external computational bounds and analytical deductions are not certified in their entirety. No claim of historical novelty, independent peer review, or verification of the broader physical framework is made by this supplement.
+
+The Zenodo DOI above refers to the previously cited record; a version-specific v2.3 DOI will be added after archival publication.
 
 ## Abstract
 
@@ -482,7 +494,7 @@ The programme prioritizes mathematical rigor over numerical coincidence, reprodu
 
 ## 19. Citation and Research Provenance
 
-**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.2.
+**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.3.
 
 When citing individual results, reference the relevant version-specific manuscript, theorem or computational experiment. Use the corresponding Zenodo DOI when available.
 
