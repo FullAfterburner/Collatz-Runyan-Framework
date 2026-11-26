@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software or its formal proofs, please cite version 2.6; use the version-specific Zenodo DOI when confirmed."
+message: "If you use this software or its formal proofs, please cite the archived version 2.6."
 type: software
 title: "The Collatz–Runyan Arithmetic Framework"
 authors:
@@ -8,7 +8,8 @@ authors:
 version: "2.6"
 date-released: "2026-11-26"
 repository-code: "https://github.com/FullAfterburner/Collatz-Runyan-Framework"
-url: "https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.6"
+doi: "10.5281/zenodo.24573216"
+url: "https://doi.org/10.5281/zenodo.24573216"
 abstract: "The v2.6 arithmetic supplement adds 19 Lean modules and 142 inventoried theorem and lemma declarations. Successful automated verification reproduces the v2.5 baseline (43 modules, 418 declarations) and verifies 26 combined v2.5/v2.6 modules and 255 declarations, yielding 62 distinct modules and 560 inventoried declarations. The audit checks exact source identities and individual axiom dependencies; no sorryAx dependencies were reported. Results include binary conjugation, spectral symmetry, adelic arithmetic, conditional iteration correspondence, non-descent restrictions, and cycle admissibility. The Collatz conjecture remains unresolved; automated verification is not independent peer review."
 keywords:
   - Collatz conjecture

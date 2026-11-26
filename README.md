@@ -1,8 +1,8 @@
 # The Collatz–Runyan Arithmetic Framework
 
-**v2.6 — published on GitHub (November 26, 2026):** [Binary conjugation, adelic identities, iteration bridge and cyclic rotation rigidity](Collatz%20Research%20v2.6/README.md). [Release](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.6) · [Verification provenance](Collatz%20Research%20v2.6/audit/verification-provenance.json) · [Release notes](Collatz%20Research%20v2.6/RELEASE-NOTES.md). Zenodo version-specific DOI awaiting confirmation. The Collatz conjecture remains unresolved.
+**v2.6 — published on GitHub (November 26, 2026):** [Binary conjugation, adelic identities, iteration bridge and cyclic rotation rigidity](Collatz%20Research%20v2.6/README.md). [Release](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.6) · [Verification provenance](Collatz%20Research%20v2.6/audit/verification-provenance.json) · [Release notes](Collatz%20Research%20v2.6/RELEASE-NOTES.md). Zenodo version-specific DOI: [10.5281/zenodo.24573216](https://doi.org/10.5281/zenodo.24573216). The Collatz conjecture remains unresolved.
 
-[![v2.6 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v26-full-audit.yml/badge.svg?branch=main)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45911485057) [![v2.5 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml/badge.svg?branch=main)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml) [![v2.4 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24549264.svg)](https://doi.org/10.5281/zenodo.24549264)
+[![v2.6 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v26-full-audit.yml/badge.svg?branch=main)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45911485057) [![v2.5 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml/badge.svg?branch=main)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml) [![v2.6 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24573216.svg)](https://doi.org/10.5281/zenodo.24573216)
 
 **Formal verification:** [560 inventoried declarations across 62 distinct mathematical Lean modules](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45911485057) (v2.6; automated audit passed). The v2.5 baseline contributes 418 declarations across 43 modules; the combined v2.5/v2.6 audit contributes 142 new declarations across 19 additional modules. [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
 
@@ -16,7 +16,11 @@
 **Archived v2.4:** [10.5281/zenodo.24549264](https://doi.org/10.5281/zenodo.24549264)  
 **Latest GitHub release:** [v2.6](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.6)  
 **Previous GitHub release:** [v2.5](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.5)  
-**v2.6 Zenodo DOI:** awaiting confirmation (do not cite an older DOI as v2.6).  
+**Archived v2.6 (GitHub-linked):** [10.5281/zenodo.24573216](https://doi.org/10.5281/zenodo.24573216)  
+**Archived v2.5 (GitHub-linked):** [10.5281/zenodo.24567239](https://doi.org/10.5281/zenodo.24567239)  
+**Archived v2.4 (GitHub-linked):** [10.5281/zenodo.24549230](https://doi.org/10.5281/zenodo.24549230)  
+**Archived v2.0.0 (GitHub-linked):** [10.5281/zenodo.24517628](https://doi.org/10.5281/zenodo.24517628)  
+The GitHub-linked DOIs were confirmed in the author's Zenodo integration dashboard; earlier documented archival references are retained separately.  
 **Archived v2.3:** [10.5281/zenodo.24546360](https://doi.org/10.5281/zenodo.24546360)  
 **All versions (concept DOI):** [10.5281/zenodo.24517627](https://doi.org/10.5281/zenodo.24517627)  
 **Previous archive (v2):** [10.5281/zenodo.24517681](https://doi.org/10.5281/zenodo.24517681)  
@@ -28,7 +32,7 @@ The [v2.5 research supplement](Collatz%20Research%20v2.5/README.md) adds seven L
 
 The strongest encoded coefficient-growth result in this supplement, `FamilyCoefficientRigidity.prefix_coefficient_growth`, assumes an injective shortcut Collatz orbit and a starting integer n with n % 3 ≠ 0. For every natural k it establishes a prefix index j ≤ k such that k^29 ≤ (n C_j)^32, where C_j = 3^(oddCount n j)/2^j. The resulting 29/32 exponent describes a necessary prefix-maximum bound, not a pointwise coefficient bound or proof of universal descent. Further verified results establish rational asymptotic coefficient restrictions, certified parity-frequency inequalities (including eventual odd frequency strictly above 5/8 for injective orbits), orbit repetition under arbitrarily late certified deficits, and an obstruction to uniform fixed-length coefficient contraction. The real logarithmic liminf formulation is an analytical consequence, not a separately audited Lean theorem.
 
-See the [complete declaration inventory](Collatz%20Research%20v2.5/audit/declaration-inventory.json), [source identity record](Collatz%20Research%20v2.5/audit/source-checks.json), [audit provenance](Collatz%20Research%20v2.5/audit/verification-provenance.json), [new source checksums](Collatz%20Research%20v2.5/SHA256SUMS.txt), [audit workflow](.github/workflows/collatz-v25-full-audit.yml) and [release notes](Collatz%20Research%20v2.5/RELEASE-NOTES.md). The v2.5 GitHub release is published. The v2.4 DOI is retained as a historical citation; later version-specific Zenodo DOIs require confirmation. Counts include supporting and repeated results; automated verification is not independent human peer review. The Collatz conjecture, general divergence exclusion, nontrivial positive cycle exclusion and the proposed physical theory remain unresolved. Historical novelty has not been established.
+See the [complete declaration inventory](Collatz%20Research%20v2.5/audit/declaration-inventory.json), [source identity record](Collatz%20Research%20v2.5/audit/source-checks.json), [audit provenance](Collatz%20Research%20v2.5/audit/verification-provenance.json), [new source checksums](Collatz%20Research%20v2.5/SHA256SUMS.txt), [audit workflow](.github/workflows/collatz-v25-full-audit.yml) and [release notes](Collatz%20Research%20v2.5/RELEASE-NOTES.md). The v2.5 GitHub release is archived as [10.5281/zenodo.24567239](https://doi.org/10.5281/zenodo.24567239). Earlier documented archive references remain preserved. Counts include supporting and repeated results; automated verification is not independent human peer review. The Collatz conjecture, general divergence exclusion, nontrivial positive cycle exclusion and the proposed physical theory remain unresolved. Historical novelty has not been established.
 
 ## v2.4 — Extended Formal Verification, Cycle Rigidity, and Universal Descent Investigations
 
@@ -523,7 +527,7 @@ The programme prioritizes mathematical rigor over numerical coincidence, reprodu
 
 ## 19. Citation and Research Provenance
 
-**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.6 (published GitHub release; Zenodo DOI awaiting confirmation).
+**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.6. Archived on Zenodo: [10.5281/zenodo.24573216](https://doi.org/10.5281/zenodo.24573216).
 
 When citing individual results, reference the relevant version-specific manuscript, theorem or computational experiment. Use the corresponding Zenodo DOI when available.
 

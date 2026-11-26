@@ -18,4 +18,4 @@ The last result constructs a successor candidate under supplied arithmetic hypot
 
 ## Archival citation
 
-The version-specific Zenodo DOI is awaiting confirmation. Do not use earlier version-specific DOIs as the v2.6 DOI. Earlier releases and audit history are preserved.
+Version-specific Zenodo DOI: [10.5281/zenodo.24573216](https://doi.org/10.5281/zenodo.24573216) (publication confirmed in the author's GitHub integration dashboard). Earlier releases and audit history are preserved. The published v2.6 tag is unchanged; subsequent documentation and citation corrections are on main.
