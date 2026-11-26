@@ -1,22 +1,30 @@
 # The Collatz–Runyan Arithmetic Framework
 
-[![v2.4 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml/badge.svg)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml) [![v2.4 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24549264.svg)](https://doi.org/10.5281/zenodo.24549264)
+[![v2.5 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml/badge.svg?branch=main)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml) [![v2.4 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24549264.svg)](https://doi.org/10.5281/zenodo.24549264)
 
-**Formal verification:** [305/305 inventoried theorem declarations passed](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45754171971) across 36 Lean modules. [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
+**Formal verification:** [418/418 inventoried theorem and lemma declarations passed](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45865785715) across 43 mathematical Lean modules (v2.5; release prepared). [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
 
 ## Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics
 
 **Author:** Jake Thomas Runyan  
-**Research Edition:** v2.4 — Extended Formal Verification, Cycle Rigidity, and Universal Descent Investigations  
+**Research Edition:** v2.5 — Coefficient Growth, Asymptotic Rigidity and Parity Drift Constraints (release prepared)  
 **Updated:** November 26, 2026 (UTC)  
 **Status:** Independent mathematical and theoretical physics research programme; selected statements machine-checked in Lean 4; broader results remain subject to independent review.
 
 **Archived v2.4:** [10.5281/zenodo.24549264](https://doi.org/10.5281/zenodo.24549264)  
-**GitHub release:** [v2.4](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.4)  
+**Latest archived GitHub release:** [v2.4](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.4)  
 **Archived v2.3:** [10.5281/zenodo.24546360](https://doi.org/10.5281/zenodo.24546360)  
 **All versions (concept DOI):** [10.5281/zenodo.24517627](https://doi.org/10.5281/zenodo.24517627)  
 **Previous archive (v2):** [10.5281/zenodo.24517681](https://doi.org/10.5281/zenodo.24517681)  
 **Previous GitHub release:** [v2.3](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.3)
+
+## v2.5 — Coefficient Growth, Asymptotic Rigidity and Parity Drift Constraints
+
+The [v2.5 research supplement](Collatz%20Research%20v2.5/README.md) adds seven Lean modules and 113 inventoried theorem and lemma declarations. A fresh [main-branch GitHub Actions audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45865785715) completed November 26, 2026 (UTC), compiling **43/43 mathematical modules and auditing 418/418 declarations** using Lean and Mathlib v4.19.0. It reproduced the 305 v2.4 declarations and their axiom dependencies, verified all 43 mathematical source identities and both versioned checksum manifests, and reported only `propext`, `Classical.choice` and `Quot.sound`, with zero `sorryAx` dependencies. The audited source commit is `3e036b21968b04e5b5209bc4d8b6f29cc3bdcdbd`; the earlier [audit-branch run](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45860248412) also passed.
+
+The strongest encoded coefficient-growth result in this supplement, `FamilyCoefficientRigidity.prefix_coefficient_growth`, assumes an injective shortcut Collatz orbit and a starting integer n with n % 3 ≠ 0. For every natural k it establishes a prefix index j ≤ k such that k^29 ≤ (n C_j)^32, where C_j = 3^(oddCount n j)/2^j. The resulting 29/32 exponent describes a necessary prefix-maximum bound, not a pointwise coefficient bound or proof of universal descent. Further verified results establish rational asymptotic coefficient restrictions, certified parity-frequency inequalities (including eventual odd frequency strictly above 5/8 for injective orbits), orbit repetition under arbitrarily late certified deficits, and an obstruction to uniform fixed-length coefficient contraction. The real logarithmic liminf formulation is an analytical consequence, not a separately audited Lean theorem.
+
+See the [complete declaration inventory](Collatz%20Research%20v2.5/audit/declaration-inventory.json), [source identity record](Collatz%20Research%20v2.5/audit/source-checks.json), [audit provenance](Collatz%20Research%20v2.5/audit/verification-provenance.json), [new source checksums](Collatz%20Research%20v2.5/SHA256SUMS.txt), [audit workflow](.github/workflows/collatz-v25-full-audit.yml) and [release notes](Collatz%20Research%20v2.5/RELEASE-NOTES.md). The v2.5 release is prepared; the published v2.4 DOI remains the latest version-specific archive until a new DOI is issued. Counts include supporting and repeated results; automated verification is not independent human peer review. The Collatz conjecture, general divergence exclusion, nontrivial positive cycle exclusion and the proposed physical theory remain unresolved. Historical novelty has not been established.
 
 ## v2.4 — Extended Formal Verification, Cycle Rigidity, and Universal Descent Investigations
 
@@ -511,7 +519,7 @@ The programme prioritizes mathematical rigor over numerical coincidence, reprodu
 
 ## 19. Citation and Research Provenance
 
-**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.4.
+**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.5 (latest archived release v2.4).
 
 When citing individual results, reference the relevant version-specific manuscript, theorem or computational experiment. Use the corresponding Zenodo DOI when available.
 

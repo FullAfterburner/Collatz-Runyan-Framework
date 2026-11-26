@@ -1,6 +1,6 @@
-# Collatz–Runyan Framework — v2.5 audit candidate
+# Collatz–Runyan Framework — v2.5
 
-**Status:** unpublished audit candidate. Author-reported local verification: 418 theorem/lemma declarations across 43 mathematical modules, including 113 additions across seven modules. The seven new source hashes have been independently recalculated against the author's checkpoint. Fresh GitHub Actions verification of v2.5 is pending.
+**Status:** audited on main; release prepared. The [main-branch automated audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45865785715) completed November 26, 2026 at 17:22 UTC, with 418/418 declarations and 43/43 mathematical modules passed. The seven new modules contain 113 declarations. All 43 source identities and both versioned manifests passed, and the original 305 declarations and their axiom dependencies matched the published baseline. The only reported foundational axiom types were `propext`, `Classical.choice` and `Quot.sound`; no `sorryAx` dependency was reported. The audit-branch [run](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45860248412) also passed.
 
 ## Source inventory
 
@@ -36,11 +36,11 @@ python3 "Collatz Research v2.5/audit/verify-v25.py"
 
 GitHub Actions runs the same script, archives per-module compile and axiom logs, dependency orders, source hashes and the full declaration inventory. The audit checks the exact historical source commit and the published baseline inventory; the new sources are compiled in dependency order and audited via imports of fresh `.olean` files.
 
-`SHA256SUMS.txt` and `audit/source-inventory.json` describe the seven authenticated input sources. They are not new compilation evidence. A successful fresh run at an identified commit must precede release publication. Counts include supporting and repeated mathematical statements, not necessarily distinct discoveries. Automated verification is not independent human peer review; historical novelty is not established.
+`SHA256SUMS.txt` and `audit/source-inventory.json` describe the seven authenticated input sources. They are not new compilation evidence. The fresh main-branch run passed at commit `3e036b21968b04e5b5209bc4d8b6f29cc3bdcdbd`. Its [declaration inventory](audit/declaration-inventory.json) and [source-check record](audit/source-checks.json) are preserved byte-for-byte. See [verification provenance](audit/verification-provenance.json) for run, job, artifact and SHA-256 identifiers. The [full original audit artifact](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45865785715/artifacts/15139469972) contains 99 files; download and retain it before GitHub's retention period expires. Counts include supporting and repeated mathematical statements, not necessarily distinct discoveries. Automated verification is not independent human peer review; historical novelty is not established.
 
 ## Publication
 
-The existing published v2.4 release and DOI remain authoritative until v2.5 has passed the audit and is separately archived.
+The v2.5 technical audit is complete. See [release notes](RELEASE-NOTES.md). The published v2.4 version-specific DOI remains authoritative for that archived version; a v2.5 version-specific DOI must be assigned separately. No v2.5 DOI is asserted here.
 
 - v2.4: https://doi.org/10.5281/zenodo.24549264
 - Prior audit: https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45754171971

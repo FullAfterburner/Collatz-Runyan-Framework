@@ -1,0 +1,39 @@
+{
+  "source_commit": "3e036b21968b04e5b5209bc4d8b6f29cc3bdcdbd",
+  "main_run_id": 45865785715,
+  "main_job_id": 140068127935,
+  "completed_utc": "2026-11-26T17:22:15Z",
+  "main_run_url": "https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45865785715",
+  "premerge_run_id": 45860248412,
+  "premerge_source_commit": "ee42a64e26a5a0d692d7d7b5d510f662994e3ccd",
+  "artifact": {
+    "id": 15139469972,
+    "url": "https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45865785715/artifacts/15139469972",
+    "bytes": 52397,
+    "files": 99,
+    "sha256": "a42d6037018b06b11c08d952442dde593bdab81a1dc18659fa532a4f5dc0b575",
+    "expires_utc": "2027-02-24T17:12:53Z"
+  },
+  "declarations": 418,
+  "modules": 43,
+  "source_identities": 43,
+  "new_source_identities": 7,
+  "axiom_counts": {
+    "propext": 416,
+    "Quot.sound": 394,
+    "Classical.choice": 294
+  },
+  "unapproved_axiom_dependencies": 0,
+  "sorryAx_dependencies": 0,
+  "archived_files": {
+    "declaration-inventory.json": {
+      "sha256": "3b8ede7aa4158a8019f245ab1f1d5f1d087112549fb41403367649d64244e52e",
+      "git_blob": "9d1e650cdb5edf1007deb43796742d3f4b71e14c"
+    },
+    "source-checks.json": {
+      "sha256": "366d5af2ffbf82e7837d8e78ea9582e0e9531e4e53e8c2e430dcbd53d5f6b453",
+      "git_blob": "76e4e8523147309fcc82db379a53c4989805039e"
+    }
+  },
+  "scope": "Original source audit and exact archive evidence; not a new audit of documentation-only changes. Retain the full ZIP separately."
+}
