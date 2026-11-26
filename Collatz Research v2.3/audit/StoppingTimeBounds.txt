@@ -1,0 +1,6 @@
+'CollatzRunyan.StoppingTimeBounds.affine_gap_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.StoppingTimeBounds.grid_identity' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.StoppingTimeBounds.odd_count_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.StoppingTimeBounds.grid_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.StoppingTimeBounds.grid_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.StoppingTimeBounds.crossing_depth_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

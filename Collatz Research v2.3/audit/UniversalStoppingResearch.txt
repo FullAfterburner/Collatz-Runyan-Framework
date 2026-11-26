@@ -1,0 +1,10 @@
+'CollatzRunyan.UniversalStoppingResearch.positive_record_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzRunyan.UniversalStoppingResearch.record_max_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.UniversalStoppingResearch.finite_record_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzRunyan.UniversalStoppingResearch.no_infinite_record_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

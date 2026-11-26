@@ -1,0 +1,7 @@
+'CollatzRunyan.GlobalParity.prefix_affine_difference' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.GlobalParity.prefix_difference_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.GlobalParity.prefix_collision_of_small_difference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CollatzRunyan.GlobalParity.shortcut_growth' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.GlobalParity.orbit_growth' depends on axioms: [propext, Classical.choice, Quot.sound]

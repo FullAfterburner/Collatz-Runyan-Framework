@@ -1,0 +1,7 @@
+'CollatzRunyan.BinaryStabilization.dvd_implies_prefix' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.BinaryStabilization.prefix_iff_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.BinaryStabilization.code_eq_iff_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.BinaryStabilization.residue_same_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.BinaryStabilization.residue_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.BinaryStabilization.residue_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.BinaryStabilization.residue_stabilizes_from' depends on axioms: [propext, Classical.choice, Quot.sound]

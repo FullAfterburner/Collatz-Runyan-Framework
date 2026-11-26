@@ -1,0 +1,33 @@
+.\DescentResearch.lean:33:39: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.\DescentResearch.lean:34:39: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.\DescentResearch.lean:95:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.\DescentResearch.lean:100:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.\DescentResearch.lean:154:29: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.\DescentResearch.lean:158:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.\DescentResearch.lean:164:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'CollatzRunyan.Descent.step_affine' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.shortcut_pos' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.orbit_pos' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.orbit_add' depends on axioms: [propext]
+'CollatzRunyan.Descent.factor_eq_pow' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.coeffA_eq_pow' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.affine_trajectory' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.affine_trajectory_pow' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.descent_iff_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.Descent.descent_implies_convergence' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.convergence_implies_descent' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.descent_iff_convergence' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.certificate_iff_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.Descent.certificate_iff_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.Descent.even_descends' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.shortcut_four_add_one' depends on axioms: [propext, Quot.sound]
+'CollatzRunyan.Descent.orbit_two_four_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.Descent.four_add_one_descends' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzRunyan.Descent.nonconvergence_implies_nondescending' depends on axioms: [propext, Classical.choice, Quot.sound]
