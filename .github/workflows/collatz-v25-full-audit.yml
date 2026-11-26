@@ -1,0 +1,37 @@
+name: Full v2.5 theorem audit
+on:
+  push:
+    branches: [v2.5-audit, main]
+    paths:
+      - '.github/workflows/collatz-v25-full-audit.yml'
+      - 'Collatz Research v2.5/**'
+      - 'Collatz Research v2.4/**'
+      - 'Collatz Research v2.3/**'
+      - 'Lean Proofs/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out exact triggering commit and baseline history
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install Elan
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Verify source bytes, compile dependencies, and audit 418 declarations
+        run: python3 "Collatz Research v2.5/audit/verify-v25.py"
+      - name: Archive verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collatz-v25-full-theorem-audit
+          path: full-audit-v25/
+          if-no-files-found: error
