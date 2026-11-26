@@ -7,7 +7,10 @@
 **Updated:** November 25, 2026  
 **Status:** Independent mathematical and theoretical physics research programme; selected statements machine-checked in Lean 4; broader results remain subject to independent review.
 
-https://doi.org/10.5281/zenodo.24517681
+**Archived v2.3:** [10.5281/zenodo.24546360](https://doi.org/10.5281/zenodo.24546360)  
+**All versions (concept DOI):** [10.5281/zenodo.24517627](https://doi.org/10.5281/zenodo.24517627)  
+**Previous archive (v2):** [10.5281/zenodo.24517681](https://doi.org/10.5281/zenodo.24517681)  
+**GitHub release:** [v2.3](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.3)
 
 ## v2.3 — Formal Collatz Descent, Parity Rigidity and Cycle Research
 
@@ -19,7 +22,7 @@ The archived logs record successful individual-file checks using Lean and Mathli
 
 **Scope and limitations:** v2.3 is not a proof or disproof of the Collatz conjecture. Universal descent, divergence exclusion and nontrivial positive cycle exclusion remain open. The audits establish only the encoded statements under their explicit hypotheses; external computational bounds and analytical deductions are not certified in their entirety. No claim of historical novelty, independent peer review, or verification of the broader physical framework is made by this supplement.
 
-The Zenodo DOI above refers to the previously cited record; a version-specific v2.3 DOI will be added after archival publication.
+The v2.3 GitHub release is archived on Zenodo as an open-access software record (publication date November 26, 2026, as shown on Zenodo). Cite the version-specific DOI for this release and the concept DOI when referring to the project across versions. The previous archive is preserved.
 
 ## Abstract
 
