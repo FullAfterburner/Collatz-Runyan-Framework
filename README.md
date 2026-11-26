@@ -1,6 +1,6 @@
 # The Collatz–Runyan Arithmetic Framework
 
-[![v2.4 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml/badge.svg)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml) [![v2.3 archived DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24546360.svg)](https://doi.org/10.5281/zenodo.24546360)
+[![v2.4 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml/badge.svg)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml) [![v2.4 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24549264.svg)](https://doi.org/10.5281/zenodo.24549264)
 
 **Formal verification:** [305/305 inventoried theorem declarations passed](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45754171971) across 36 Lean modules. [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
 
@@ -11,6 +11,8 @@
 **Updated:** November 26, 2026 (UTC)  
 **Status:** Independent mathematical and theoretical physics research programme; selected statements machine-checked in Lean 4; broader results remain subject to independent review.
 
+**Archived v2.4:** [10.5281/zenodo.24549264](https://doi.org/10.5281/zenodo.24549264)  
+**GitHub release:** [v2.4](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.4)  
 **Archived v2.3:** [10.5281/zenodo.24546360](https://doi.org/10.5281/zenodo.24546360)  
 **All versions (concept DOI):** [10.5281/zenodo.24517627](https://doi.org/10.5281/zenodo.24517627)  
 **Previous archive (v2):** [10.5281/zenodo.24517681](https://doi.org/10.5281/zenodo.24517681)  
@@ -22,7 +24,7 @@ The [v2.4 supplement](Collatz%20Research%20v2.4/README.md) adds 19 standalone Le
 
 The supplement studies denominator and prime-power rigidity, modular zero sums, local and coupled cycle constraints, congruence propagation, distinct-visit descent estimates and parity-coefficient growth. In particular, `BoundedCoefficientRigidity.prefix_coefficient_growth` proves that for an injective shortcut Collatz orbit starting at n, for every k there exists j ≤ k with k² ≤ (n C_j)³, where C_j = 3^(oddCount n j)/2^j. The theorem `injective_coefficient_unbounded` excludes injective orbits with a globally bounded coefficient. Neither result excludes all divergent trajectories.
 
-See the [durable audit inventory](Collatz%20Research%20v2.4/audit/declaration-inventory.json), [source checksums](Collatz%20Research%20v2.4/SHA256SUMS.txt), and [full audit workflow](.github/workflows/collatz-v24-full-audit.yml). Counts include supporting and repeated results, not distinct mathematical discoveries. This is automated reproducibility, not independent human peer review. Historical novelty is not established; universal descent, general divergence exclusion and nontrivial positive cycle exclusion remain open. The v2.3 archive remains available. A version-specific v2.4 Zenodo DOI is pending.
+See the [durable audit inventory](Collatz%20Research%20v2.4/audit/declaration-inventory.json), [source checksums](Collatz%20Research%20v2.4/SHA256SUMS.txt), and [full audit workflow](.github/workflows/collatz-v24-full-audit.yml). Counts include supporting and repeated results, not distinct mathematical discoveries. This is automated reproducibility, not independent human peer review. Historical novelty is not established; universal descent, general divergence exclusion and nontrivial positive cycle exclusion remain open. The v2.3 archive remains available. Cite the version-specific [v2.4 Zenodo DOI](https://doi.org/10.5281/zenodo.24549264) for this edition.
 
 ## v2.3 — Formal Collatz Descent, Parity Rigidity and Cycle Research
 

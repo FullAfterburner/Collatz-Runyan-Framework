@@ -1,13 +1,15 @@
 cff-version: 1.2.0
-message: "If you use this research software or its formal proofs, please cite the version used. The v2.4 Zenodo DOI is pending."
+message: "If you use this research software or its formal proofs, please cite the archived v2.4 release."
 type: software
 title: "The Collatz–Runyan Arithmetic Framework"
 authors:
   - family-names: "Runyan"
     given-names: "Jake Thomas"
 version: "2.4"
+date-released: "2026-11-26"
+doi: "10.5281/zenodo.24549264"
 repository-code: "https://github.com/FullAfterburner/Collatz-Runyan-Framework"
-url: "https://github.com/FullAfterburner/Collatz-Runyan-Framework"
+url: "https://doi.org/10.5281/zenodo.24549264"
 abstract: "An interdisciplinary arithmetic research programme with formal Collatz supplements. A fresh automated audit verified all 305 inventoried theorem declarations across 36 mathematical Lean modules with no sorryAx dependencies. Counts include supporting and repeated results. This is not a proof or disproof of the Collatz conjecture or independent peer review."
 keywords:
   - Collatz conjecture

@@ -2,6 +2,9 @@
 
 This supplement preserves 19 author-compiled research modules (168 theorem declarations). Together with the previously audited 137 declarations across 17 modules, the combined inventory is 305 declarations across 36 modules. Counts include supporting and repeated results, not distinct discoveries. A fresh [GitHub Actions audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45754171971) verified all 305 declarations and 36 modules at commit `61654302e084a2fa2fdcf50321a8fa64a19994ad`, including 19/19 source checksum checks and no unexpected axiom dependencies. The Collatz conjecture remains open; no claim of historical novelty or peer review is made.
 
+**Version-specific Zenodo DOI:** [10.5281/zenodo.24549264](https://doi.org/10.5281/zenodo.24549264)  
+**GitHub release:** [v2.4](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.4)
+
 | Module | Declarations |
 | --- | ---: |
 | DenominatorRigidity | 7 |
