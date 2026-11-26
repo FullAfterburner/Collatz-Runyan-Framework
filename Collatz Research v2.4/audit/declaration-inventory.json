@@ -1,0 +1,2341 @@
+{
+  "source_commit": "61654302e084a2fa2fdcf50321a8fa64a19994ad",
+  "run_id": 45754171971,
+  "job_id": 139688756008,
+  "artifact_id": 15087395952,
+  "completed_utc": "2026-11-26T04:21:15Z",
+  "source": "Extracted from GitHub Actions job log; not a substitute for the original logs.",
+  "declarations": 305,
+  "modules": 36,
+  "checksum_checks": 19,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "entries": [
+    {
+      "name": "CollatzRunyan.f0_left_inverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.f1_left_inverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.f0_right_inverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.f1_right_inverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.affine_commutator",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.descent_certificate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.pell_three",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.pell_thirtyseven",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.pell_137",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.matrix_unit_mul",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.no_complement",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.admissible_entry_zero",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.supported_pairing_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.lorentzian_polynomial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.hermitian_determinant_formula",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.boost_invariant",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.step_affine",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.shortcut_pos",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.orbit_pos",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.orbit_add",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.factor_eq_pow",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.coeffA_eq_pow",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.affine_trajectory",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.affine_trajectory_pow",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.descent_iff_certificate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.descent_implies_convergence",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.convergence_implies_descent",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.descent_iff_convergence",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.certificate_iff_descent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.certificate_iff_convergence",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.even_descends",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.shortcut_four_add_one",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.orbit_two_four_add_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.four_add_one_descends",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.Descent.nonconvergence_implies_nondescending",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityRigidity.affine_telescoping",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityRigidity.affine_repeat_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityRigidity.two_three_coprime",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityRigidity.parity_repeat_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityRigidity.parity_repeat_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityRigidity.zero_discriminant_return",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.two_mul_shortcut_even",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.two_mul_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.prefix_affine_difference",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.prefix_difference_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.prefix_collision_of_small_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.shortcut_nonneg",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.shortcut_growth",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalParity.orbit_growth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.two_mul_shortcut_even",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.two_mul_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.prefix_affine_difference",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.prefix_difference_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.prefix_collision_of_small_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.code_eq_implies_prefix",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.code_difference_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.code_collision_in_interval",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.finite_code_card",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityComplexity.finite_orbit_complexity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityEntropy.twice_shortcut_even",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityEntropy.twice_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityEntropy.odd_cube_strict",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityEntropy.step_cube_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityEntropy.weighted_growth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ParityEntropy.nondescending_odd_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.two_mul_shortcut_even",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.two_mul_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.prefix_affine_difference",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.prefix_difference_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.prefix_collision_of_small_difference",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.code_eq_implies_prefix",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.code_difference_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.code_collision_in_interval",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.dvd_implies_prefix",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.prefix_iff_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.prefix_implies_code_eq",
+      "axioms": []
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.code_eq_iff_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.residue_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.residue_same_code",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.residue_unique",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.residue_lift",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.residue_stabilizes_at",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BinaryStabilization.residue_stabilizes_from",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.twice_shortcut_even",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.twice_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.affine_prefix",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.odd_position_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.odd_weight_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.offset_le_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.affine_nondescending_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.first_crossing_exception",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.SurvivingResidueTree.first_crossing_descent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.twice_shortcut_even",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.twice_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.affine_prefix",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.offset_linear_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.first_crossing_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.gap_descent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.rational_grid",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.fixed_grid_nonzero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DiophantineGap.fifty_billion_cap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StoppingTimeBounds.affine_gap_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StoppingTimeBounds.grid_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StoppingTimeBounds.odd_count_cap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StoppingTimeBounds.grid_cap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StoppingTimeBounds.grid_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StoppingTimeBounds.crossing_depth_lower_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalStoppingResearch.positive_record_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalStoppingResearch.record_max_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalStoppingResearch.finite_record_obstruction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalStoppingResearch.no_infinite_record_family",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.twice_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.cycle_min_odd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.odd_step_telescope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.odd_run_shift",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.run_endpoint_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.grid_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.grid_at_least_six",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleExclusionResearch.cycle_run_count_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.twice_shortcut_odd",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.odd_run_shift",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.twice_shortcut_even",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.orbit_add",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.even_run_scale",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.local_minimum_transition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.odd_run_core",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.next_minimum_not_multiple_three",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.power_ratio_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.local_minimum_growth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleMinimaResearch.minima_chain_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleCoreRigidity.core_mod_power",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleCoreRigidity.powers_coprime",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleCoreRigidity.core_divisibility_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleCoreRigidity.shadow_param_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleCoreRigidity.shadow_param_pow",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleCoreRigidity.shadow_steps",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleCoreRigidity.shadow_not_cycle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DenominatorRigidity.difference_coprime",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DenominatorRigidity.rotation_divisibility_iff",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DenominatorRigidity.middle_swap_gap",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DenominatorRigidity.contextual_swap_gap",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DenominatorRigidity.coprime_gap_certificate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DenominatorRigidity.two_position_obstruction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.DenominatorRigidity.adjacent_swap_forces_unit",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.step_defect",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.chain_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.cycle_count_divisible",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.prime_power_gap_obstruction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.affine_defect_step",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.affine_defect_chain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.affine_count_iff",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerRigidity.higher_power_example",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerCorrections.correction_chain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerCorrections.cycle_weighted_balance",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerCorrections.ordinary_segment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerCorrections.exception_multiplier",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerCorrections.two_exception_count",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerCorrections.two_exception_segments",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.PrimePowerCorrections.higher_power_two_exception_example",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.weighted_chain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.weighted_cycle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.ordinary_weight",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.unit_gap_weight",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.closing_weight",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.weight_sum_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.positive_small_not_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.bounded_weight_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ExceptionalGapRigidity.three_unit_gap_example",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.residue_dvd_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.opposite_pair_cancel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.positive_small_not_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.opposite_pair_lower_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.zero_block_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.small_residual_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.signed_count_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.signed_count_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.odd_signed_count_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.minimization_counterexample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ModularWeightRigidity.counterexample_excluded",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.block_zero_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.affine_split",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.complementary_blocks",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.positive_multiple_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.zero_split_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.full_denominator_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.small_cycle_no_zero_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ZeroSumRigidity.proper_zero_segment_example",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.two_pow_le_three_pow",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.block_numerator_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.block_numerator_relaxed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.split_product_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.divisor_product_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.full_split_square",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.cycle_square_cap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CycleBoundConflict.separation_conflict",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.positive_divisor_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.common_divisor_square",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.large_modulus_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.nontrivial_cycle_divisor_cap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.prefix_collision_forced",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.no_collision_cardinality",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.proper_divisor_counterexample",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.ForcedZeroSum.rational_two_gap_return",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.incoming_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.outgoing_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.coprime_joint_residue",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.two_sided_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.least_representative_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.interval_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.nonneg_power_mono",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.product_bound_at_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.joint_product_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.IntegralityRigidity.joint_only_example",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.incoming_run_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.outgoing_run_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.incoming_run_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.outgoing_run_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.local_residue_exists",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.long_run_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.long_run_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.AdaptiveResidueRigidity.interval_unique",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.incoming_residue",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.core_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.run_ratio_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.run_ratio_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.runProduct_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.runProduct_mono",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.runProduct_mul",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.global_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.GlobalRunRigidity.strict_refinement_example",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.forward_threshold",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.backward_threshold",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.residue_rounding",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.stable_edge",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.stable_chain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.chain_affine",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.closed_denominator",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.bounded_stabilization",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CoupledRunRigidity.coupled_example",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.offset_from_cores",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.chain_defect_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.closed_seed_dvd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.reduced_divisor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.transfer_divisor",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.all_cores_dvd",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.core_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.StabilizedCoreRigidity.common_divisor_example",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.incoming_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.outgoing_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.coprime_joint_residue",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.least_representative_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.adjacent_core_residue",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.local_offset_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.adjacent_core_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LocalDivisorRigidity.joint_only_example",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.forward_defect",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.backward_defect",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.rational_shadow",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.simultaneous_shadow",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.shadow_uniqueness",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.nonintegral_shadow_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.bounded_shadow_exclusion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CongruencePropagation.rational_core_example",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.correction_six_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.correction_six_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.ranked_correction_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.visitProduct_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.visitProduct_pow",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.ranked_product_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.nondescending_coefficient_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.UniversalDescentRigidity.distinct_visit_descent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.odd_spacing",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.three_free_spacing",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.even_index_rank",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.sorted_rank",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.correction_nine_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.correction_nine_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.ranked_nine_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.visitProduct_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.visitProduct_pow",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.ranked_product_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.nondescending_coefficient_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.distinct_visit_descent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.LogarithmicDeficitRigidity.sorted_visit_descent",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_increment",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_window",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_offset_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_affine_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_two_steps",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_three_steps",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_count_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_even_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_actual_affine",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.CriticalParityRigidity.critical_distinct_prefix_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.coefficient_step",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.major_ge_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.cubic_step_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.major_range",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.orbit_product_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.distinct_visit_product",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.injective_avoids_small",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.exists_prefix_max",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.record_square_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.prefix_coefficient_growth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CollatzRunyan.BoundedCoefficientRigidity.injective_coefficient_unbounded",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

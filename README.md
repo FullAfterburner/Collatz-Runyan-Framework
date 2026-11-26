@@ -1,20 +1,28 @@
 # The Collatz–Runyan Arithmetic Framework
 
-[![Full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v23-full-audit.yml/badge.svg)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v23-full-audit.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24546360.svg)](https://doi.org/10.5281/zenodo.24546360)
+[![v2.4 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml/badge.svg)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v24-full-audit.yml) [![v2.3 archived DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24546360.svg)](https://doi.org/10.5281/zenodo.24546360)
 
-**Formal verification:** [137/137 inventoried theorem declarations passed](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45736453830) across 17 Lean modules. [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
+**Formal verification:** [305/305 inventoried theorem declarations passed](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45754171971) across 36 Lean modules. [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
 
 ## Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics
 
 **Author:** Jake Thomas Runyan  
-**Research Edition:** v2.3 — Formal Collatz Descent, Parity Rigidity and Cycle Research Edition (supplementing v2.2)  
-**Updated:** November 25, 2026  
+**Research Edition:** v2.4 — Extended Formal Verification, Cycle Rigidity, and Universal Descent Investigations  
+**Updated:** November 26, 2026 (UTC)  
 **Status:** Independent mathematical and theoretical physics research programme; selected statements machine-checked in Lean 4; broader results remain subject to independent review.
 
 **Archived v2.3:** [10.5281/zenodo.24546360](https://doi.org/10.5281/zenodo.24546360)  
 **All versions (concept DOI):** [10.5281/zenodo.24517627](https://doi.org/10.5281/zenodo.24517627)  
 **Previous archive (v2):** [10.5281/zenodo.24517681](https://doi.org/10.5281/zenodo.24517681)  
-**GitHub release:** [v2.3](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.3)
+**Previous GitHub release:** [v2.3](https://github.com/FullAfterburner/Collatz-Runyan-Framework/releases/tag/v2.3)
+
+## v2.4 — Extended Formal Verification, Cycle Rigidity, and Universal Descent Investigations
+
+The [v2.4 supplement](Collatz%20Research%20v2.4/README.md) adds 19 standalone Lean research modules and 168 formal theorem declarations. A fresh [GitHub Actions audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45754171971) of commit `61654302e084a2fa2fdcf50321a8fa64a19994ad` completed November 26, 2026 (UTC), verifying **305/305 inventoried theorem declarations across 36/36 mathematical source modules** using Lean and Mathlib v4.19.0. The audit includes 16 original declarations, 121 v2.3 declarations and 168 v2.4 declarations. All 19 new source SHA-256 checks passed; the individual axiom audits reported only `propext`, `Classical.choice` and `Quot.sound`, with no `sorryAx` dependencies.
+
+The supplement studies denominator and prime-power rigidity, modular zero sums, local and coupled cycle constraints, congruence propagation, distinct-visit descent estimates and parity-coefficient growth. In particular, `BoundedCoefficientRigidity.prefix_coefficient_growth` proves that for an injective shortcut Collatz orbit starting at n, for every k there exists j ≤ k with k² ≤ (n C_j)³, where C_j = 3^(oddCount n j)/2^j. The theorem `injective_coefficient_unbounded` excludes injective orbits with a globally bounded coefficient. Neither result excludes all divergent trajectories.
+
+See the [durable audit inventory](Collatz%20Research%20v2.4/audit/declaration-inventory.json), [source checksums](Collatz%20Research%20v2.4/SHA256SUMS.txt), and [full audit workflow](.github/workflows/collatz-v24-full-audit.yml). Counts include supporting and repeated results, not distinct mathematical discoveries. This is automated reproducibility, not independent human peer review. Historical novelty is not established; universal descent, general divergence exclusion and nontrivial positive cycle exclusion remain open. The v2.3 archive remains available. A version-specific v2.4 Zenodo DOI is pending.
 
 ## v2.3 — Formal Collatz Descent, Parity Rigidity and Cycle Research
 
@@ -501,7 +509,7 @@ The programme prioritizes mathematical rigor over numerical coincidence, reprodu
 
 ## 19. Citation and Research Provenance
 
-**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.3.
+**Runyan, Jake Thomas (2026).** *The Collatz–Runyan Arithmetic Framework: Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics.* Independent research programme, through version 2.4.
 
 When citing individual results, reference the relevant version-specific manuscript, theorem or computational experiment. Use the corresponding Zenodo DOI when available.
 

@@ -1,0 +1,170 @@
+name: Full v2.4 theorem audit
+on:
+  push:
+    branches: [main, v2.4-audit]
+    paths:
+      - '.github/workflows/collatz-v24-full-audit.yml'
+      - 'Collatz Research v2.4/**'
+      - 'Collatz Research v2.3/**'
+      - 'Lean Proofs/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Install Elan
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Audit all 305 declarations across 36 modules
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          import subprocess
+          import json
+          import hashlib
+          import shutil
+
+
+          root = pathlib.Path.cwd()
+          out = root / "full-audit"
+          out.mkdir(exist_ok=True)
+          projects = {
+              "Lean Proofs": {
+                  "CollatzRunyan/Arithmetic.lean": 9,
+                  "CollatzRunyan/BranchAlgebra.lean": 1,
+                  "CollatzRunyan/Intersection.lean": 3,
+                  "CollatzRunyan/Lorentzian.lean": 3,
+              },
+              "Collatz Research v2.3": {
+                  "DescentResearch.lean": 19,
+                  "ParityRigidity.lean": 6,
+                  "GlobalParityResearch.lean": 8,
+                  "ParityComplexity.lean": 10,
+                  "ParityEntropy.lean": 6,
+                  "BinaryStabilization.lean": 18,
+                  "SurvivingResidueTree.lean": 9,
+                  "DiophantineGap.lean": 9,
+                  "StoppingTimeBounds.lean": 6,
+                  "UniversalStoppingResearch.lean": 4,
+                  "CycleExclusionResearch.lean": 8,
+                  "CycleMinimaResearch.lean": 11,
+                  "CycleCoreRigidity.lean": 7,
+              },
+          }
+          projects["Collatz Research v2.4"] = {
+              "DenominatorRigidity.lean": 7,
+              "PrimePowerRigidity.lean": 8,
+              "PrimePowerCorrections.lean": 7,
+              "ExceptionalGapRigidity.lean": 9,
+              "ModularWeightRigidity.lean": 11,
+              "ZeroSumRigidity.lean": 8,
+              "CycleBoundConflict.lean": 8,
+              "ForcedZeroSum.lean": 8,
+              "IntegralityRigidity.lean": 10,
+              "AdaptiveResidueRigidity.lean": 8,
+              "GlobalRunRigidity.lean": 9,
+              "CoupledRunRigidity.lean": 9,
+              "StabilizedCoreRigidity.lean": 8,
+              "LocalDivisorRigidity.lean": 8,
+              "CongruencePropagation.lean": 8,
+              "UniversalDescentRigidity.lean": 8,
+              "LogarithmicDeficitRigidity.lean": 13,
+              "CriticalParityRigidity.lean": 10,
+              "BoundedCoefficientRigidity.lean": 11,
+          }
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          audit_pattern = re.compile(r"'([^']+)' (?:depends on axioms:\s*\[([^\]]*)\]|does not depend on any axioms)")
+          decl_pattern = re.compile(r"^\s*(?:theorem|lemma)\s+([A-Za-z_][A-Za-z_0-9']*)\b", re.M)
+          records = []
+          failures = []
+          total = 0
+          v24 = root / "Collatz Research v2.4"
+          manifest = {}
+          for line in (v24 / "SHA256SUMS.txt").read_text(encoding="utf-8-sig").splitlines():
+              digest, filename = line.split(maxsplit=1)
+              manifest[filename] = digest.lower()
+          expected_files = set(projects["Collatz Research v2.4"])
+          if set(manifest) != expected_files or {p.name for p in v24.glob("*.lean")} != expected_files:
+              raise ValueError("v2.4 checksum manifest or source inventory mismatch")
+          for filename, digest in manifest.items():
+              if hashlib.sha256((v24 / filename).read_bytes()).hexdigest() != digest:
+                  raise ValueError("SHA256 mismatch: " + filename)
+          (out / "v24-checksums.txt").write_text("All 19 v2.4 SHA-256 checks passed.\n".replace(chr(10), chr(10)), encoding="utf-8")
+
+          def execute(args, cwd):
+              p = subprocess.run(args, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
+              print(p.stdout, flush=True)
+              return p
+
+          for project, files in projects.items():
+              cwd = root / project
+              if project == "Collatz Research v2.4":
+                  # Reuse the pinned v2.3 Lean/Mathlib environment for standalone files.
+                  cwd = root / "Collatz Research v2.3"
+                  staging = cwd / "v24-audit-sources"
+                  staging.mkdir(exist_ok=True)
+                  for filename in files:
+                      shutil.copyfile(v24 / filename, staging / filename)
+              else:
+                  setup = execute(["lake", "exe", "cache", "get"], cwd)
+                  (out / (project + "-setup.txt")).write_text(setup.stdout, encoding="utf-8")
+                  if setup.returncode:
+                      failures.append(project + ": dependency setup failed")
+                      continue
+              for filename, expected in files.items():
+                  relative = ("v24-audit-sources/" + filename) if project == "Collatz Research v2.4" else filename
+                  source = cwd / relative
+                  original = source.read_bytes()
+                  logname = project + "-" + pathlib.Path(filename).stem + ".txt"
+                  try:
+                      text = original.decode("utf-8-sig")
+                      namespaces = re.findall(r"^namespace\s+([A-Za-z_][A-Za-z_0-9.]*)\s*$", text, re.M)
+                      names = decl_pattern.findall(text)
+                      if len(namespaces) != 1 or len(names) != expected or len(set(names)) != expected:
+                          raise ValueError(f"unexpected source inventory: {namespaces}, {len(names)} names, expected {expected}")
+                      qualified = [namespaces[0] + "." + name for name in names]
+                      # Keep original mathematical statements/proofs; only replace
+                      # the existing audit commands in the ephemeral checkout.
+                      patched = re.sub(r"(?m)^[ \t]*#print axioms[^\n]*\n?", "", text)
+                      patched += "\n" + "\n".join("#print axioms " + name for name in qualified) + "\n"
+                      source.write_text(patched, encoding="utf-8")
+                      run = execute(["lake", "env", "lean", relative], cwd)
+                      (out / logname).write_text(run.stdout, encoding="utf-8")
+                      entries = audit_pattern.findall(run.stdout)
+                      actual = [name for name, _ in entries]
+                      dependencies = {name: sorted(a.strip() for a in axioms.split(",") if a.strip()) for name, axioms in entries}
+                      unexpected = {a for values in dependencies.values() for a in values} - allowed
+                      if (run.returncode or "sorryAx" in run.stdout or re.search(r"\berror:", run.stdout)
+                          or len(actual) != expected or set(actual) != set(qualified) or unexpected):
+                          raise ValueError(f"exit={run.returncode}; count={len(actual)}/{expected}; missing={sorted(set(qualified)-set(actual))}; unexpected axioms={sorted(unexpected)}")
+                      records.append({"project": project, "file": filename, "declarations": dependencies})
+                      total += expected
+                  except Exception as exc:
+                      failures.append(f"{project}/{filename}: {exc}")
+                  finally:
+                      source.write_bytes(original)
+
+          summary = f"Passed: {total}/305 theorem declarations across {len(records)}/36 mathematical source modules.\n" + "\n".join(failures)
+          (out / "summary.txt").write_text(summary + "\n", encoding="utf-8")
+          (out / "declaration-inventory.json").write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
+          print(summary, flush=True)
+          if failures or total != 305 or len(records) != 36:
+              raise SystemExit(1)
+          PY
+      - name: Archive full audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collatz-v24-full-theorem-audit
+          path: full-audit/
+          if-no-files-found: warn
