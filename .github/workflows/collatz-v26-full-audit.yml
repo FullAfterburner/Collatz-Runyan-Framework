@@ -1,0 +1,39 @@
+name: Full v2.6 theorem audit
+on:
+  push:
+    branches: [v2.6-audit, main]
+    paths:
+      - 'Collatz Research v2.6/**'
+      - '.github/workflows/collatz-v26-full-audit.yml'
+      - 'Collatz Research v2.5/**'
+      - 'Collatz Research v2.4/**'
+      - 'Collatz Research v2.3/**'
+      - 'Lean Proofs/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install Elan
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Reproduce v2.5 baseline
+        run: python3 "Collatz Research v2.5/audit/verify-v25.py"
+      - name: Verify v2.6 additions with v2.5 dependencies
+        run: python3 "Collatz Research v2.6/audit/verify-v26.py"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: collatz-v26-audit
+          path: |
+            full-audit-v25/
+            full-audit-v26/
+          if-no-files-found: error

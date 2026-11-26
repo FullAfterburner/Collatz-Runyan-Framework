@@ -1,5 +1,7 @@
 # The Collatz–Runyan Arithmetic Framework
 
+**v2.6 audit candidate (November 26, 2026):** [Binary conjugation, adelic identities, iteration bridge and cyclic rotation rigidity](Collatz%20Research%20v2.6/README.md). Adds 19 modules and 142 inventoried declarations to the v2.5 baseline. Fresh automated verification and publication are pending; the Collatz conjecture remains unresolved. The historical v2.5 audit below remains unchanged.
+
 [![v2.5 full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml/badge.svg?branch=main)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v25-full-audit.yml) [![v2.4 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24549264.svg)](https://doi.org/10.5281/zenodo.24549264)
 
 **Formal verification:** [418/418 inventoried theorem and lemma declarations passed](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45865785715) across 43 mathematical Lean modules (v2.5; release prepared). [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
