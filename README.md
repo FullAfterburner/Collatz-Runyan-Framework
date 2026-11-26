@@ -1,5 +1,9 @@
 # The Collatz–Runyan Arithmetic Framework
 
+[![Full theorem audit](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v23-full-audit.yml/badge.svg)](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/workflows/collatz-v23-full-audit.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24546360.svg)](https://doi.org/10.5281/zenodo.24546360)
+
+**Formal verification:** [137/137 inventoried theorem declarations passed](https://github.com/FullAfterburner/Collatz-Runyan-Framework/actions/runs/45736453830) across 17 Lean modules. [Citation metadata](CITATION.cff). The Collatz conjecture remains unresolved.
+
 ## Arithmetic Foundations, Relativistic Geometry, Quantum Gravity, Modular Supergravity and Emergent String Dynamics
 
 **Author:** Jake Thomas Runyan  
