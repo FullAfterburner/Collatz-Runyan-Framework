@@ -1,0 +1,83 @@
+name: Collatz v2.3 archived-source audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/collatz-v23-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out the published v2.3 commit
+        uses: actions/checkout@v4
+        with:
+          ref: bf975865e9832a9aa79037b1e7b881c7a45aa464
+          persist-credentials: false
+      - name: Install Elan
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Install pinned toolchain and Mathlib dependencies
+        working-directory: 'Collatz Research v2.3'
+        run: |
+          lean --version
+          lake --version
+          lake exe cache get
+      - name: Compile all archived modules and audit declarations
+        working-directory: 'Collatz Research v2.3'
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          import subprocess
+
+          expected = {
+              "DescentResearch": 19,
+              "ParityRigidity": 5,
+              "GlobalParityResearch": 5,
+              "ParityComplexity": 5,
+              "ParityEntropy": 4,
+              "BinaryStabilization": 7,
+              "SurvivingResidueTree": 7,
+              "DiophantineGap": 6,
+              "StoppingTimeBounds": 6,
+              "UniversalStoppingResearch": 4,
+              "CycleExclusionResearch": 7,
+              "CycleMinimaResearch": 7,
+              "CycleCoreRigidity": 7,
+          }
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          out = pathlib.Path("fresh-audit")
+          out.mkdir(exist_ok=True)
+          pattern = re.compile(r"'([^']+)' (?:depends on axioms:\s*\[([^\]]*)\]|does not depend on any axioms)")
+          total = 0
+          failures = []
+          for name, count in expected.items():
+              run = subprocess.run(["lake", "env", "lean", name + ".lean"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
+              (out / (name + ".txt")).write_text(run.stdout, encoding="utf-8")
+              print(run.stdout, flush=True)
+              entries = pattern.findall(run.stdout)
+              unexpected = {a.strip() for _, axioms in entries for a in axioms.split(",") if a.strip()} - allowed
+              if (run.returncode != 0 or "sorryAx" in run.stdout or
+                  re.search(r"\berror:", run.stdout) or
+                  len(entries) != count or len({n for n, _ in entries}) != count or unexpected):
+                  failures.append(f"{name}: exit={run.returncode}, audit entries={len(entries)}, expected={count}, unexpected axioms={sorted(unexpected)}")
+              else:
+                  total += len(entries)
+          summary = f"Passed: {total}/89 declarations across {13 - len(failures)}/13 modules.\n" + "\n".join(failures)
+          (out / "summary.txt").write_text(summary + "\n", encoding="utf-8")
+          print(summary)
+          if failures or total != 89:
+              raise SystemExit(1)
+          PY
+      - name: Preserve fresh audit logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collatz-v23-fresh-audit
+          path: 'Collatz Research v2.3/fresh-audit/'
+          if-no-files-found: warn
